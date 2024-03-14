@@ -12,47 +12,47 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            TabItem(text: "Feed", tag: 0, systemImage: "house", tabSelection: $tabSelection)
+            TabItem(tag: 0, systemImage: "house", tabSelection: $tabSelection) { FeedView() }
             
-            TabItem(text: "Video", tag: 1, systemImage: "play.tv", tabSelection: $tabSelection)
+            TabItem(tag: 1, systemImage: "play.tv", tabSelection: $tabSelection) { Text("Video") }
             
-            TabItem(text: "Friends", tag: 2, systemImage: "person.2", tabSelection: $tabSelection)
+            TabItem(tag: 2, systemImage: "person.2", tabSelection: $tabSelection) { Text("Friends") }
             
-            TabItem(text: "Marketplace", tag: 3, imageName: "marketplace", tabSelection: $tabSelection)
+            TabItem(tag: 3, imageName: "marketplace", tabSelection: $tabSelection) { Text("Marketplace") }
             
-            TabItem(text: "Menu", tag: 4, systemImage: "text.justify", tabSelection: $tabSelection)
+            TabItem(tag: 4, systemImage: "text.justify", tabSelection: $tabSelection) { Text("Menu") }
         }
         .onAppear {
             UITabBar.appearance().barTintColor = .white
         }
     }
     
-    private struct TabItem: View {
+    private struct TabItem<Content: View>: View {
+        private let content: () -> Content
         private let systemImageName: String?
         private let imageName: String?
-        let text: String
         let tag: Int
         
         @Binding var tabSelection: Int
         
-        init(text: String, tag: Int, systemImage: String, tabSelection: Binding<Int>) {
-            self.text = text
+        init(tag: Int, systemImage: String, tabSelection: Binding<Int>, @ViewBuilder content: @escaping () -> Content) {
             self.tag = tag
             self.systemImageName = systemImage
             self.imageName = nil
             self._tabSelection = tabSelection
+            self.content = content
         }
         
-        init(text: String, tag: Int, imageName: String, tabSelection: Binding<Int>) {
-            self.text = text
+        init(tag: Int, imageName: String, tabSelection: Binding<Int>, @ViewBuilder content: @escaping () -> Content) {
             self.tag = tag
             self.systemImageName = nil
             self.imageName = imageName
             self._tabSelection = tabSelection
+            self.content = content
         }
         
         var body: some View {
-            Text(text)
+            content()
                 .tabItem {
                     if let systemImageName {
                         Image(systemName: systemImageName)

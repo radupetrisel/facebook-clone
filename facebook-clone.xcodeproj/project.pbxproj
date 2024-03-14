@@ -12,6 +12,9 @@
 		7C73227C2BA22BBF00892F52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C73227B2BA22BBF00892F52 /* Assets.xcassets */; };
 		7C73227F2BA22BBF00892F52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C73227E2BA22BBF00892F52 /* Preview Assets.xcassets */; };
 		7C7322962BA22CBB00892F52 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7322952BA22CBB00892F52 /* MainTabView.swift */; };
+		7C7322982BA337E500892F52 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7322972BA337E500892F52 /* FeedView.swift */; };
+		7C73229B2BA33B3400892F52 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73229A2BA33B3400892F52 /* ProfileView.swift */; };
+		7C73229D2BA33DD600892F52 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73229C2BA33DD600892F52 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		7C73227B2BA22BBF00892F52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C73227E2BA22BBF00892F52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C7322952BA22CBB00892F52 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		7C7322972BA337E500892F52 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		7C73229A2BA33B3400892F52 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		7C73229C2BA33DD600892F52 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +65,6 @@
 				7C7322862BA22BF100892F52 /* Service */,
 				7C7322852BA22BEE00892F52 /* Utils */,
 				7C7322792BA22BBD00892F52 /* ContentView.swift */,
-				7C73227B2BA22BBF00892F52 /* Assets.xcassets */,
 				7C73227D2BA22BBF00892F52 /* Preview Content */,
 			);
 			path = "facebook-clone";
@@ -115,6 +120,7 @@
 		7C7322892BA22BFB00892F52 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				7C73227B2BA22BBF00892F52 /* Assets.xcassets */,
 				7C7322772BA22BBD00892F52 /* facebook_cloneApp.swift */,
 			);
 			path = App;
@@ -137,6 +143,7 @@
 		7C73228C2BA22C1E00892F52 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				7C7322992BA33B2700892F52 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -165,6 +172,8 @@
 		7C7322902BA22C2800892F52 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				7C7322972BA337E500892F52 /* FeedView.swift */,
+				7C73229C2BA33DD600892F52 /* HeaderView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -196,6 +205,14 @@
 				7C7322952BA22CBB00892F52 /* MainTabView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		7C7322992BA33B2700892F52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C73229A2BA33B3400892F52 /* ProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7322982BA337E500892F52 /* FeedView.swift in Sources */,
+				7C73229D2BA33DD600892F52 /* HeaderView.swift in Sources */,
 				7C73227A2BA22BBD00892F52 /* ContentView.swift in Sources */,
+				7C73229B2BA33B3400892F52 /* ProfileView.swift in Sources */,
 				7C7322782BA22BBD00892F52 /* facebook_cloneApp.swift in Sources */,
 				7C7322962BA22CBB00892F52 /* MainTabView.swift in Sources */,
 			);
