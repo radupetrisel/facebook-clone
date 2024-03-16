@@ -11,18 +11,23 @@ struct FeedView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
-                VStack {
-                    HeaderView()
-                    
-                    DividerView(width: proxy.size.width)
-                    
-                    StoryFeedView()
-                    
-                    DividerView(width: proxy.size.width)
-                    
-                    Spacer()
+                ScrollView {
+                    VStack {
+                        HeaderView()
+                        
+                        DividerView(width: proxy.size.width)
+                        
+                        StoryFeedView()
+                        
+                        DividerView(width: proxy.size.width)
+                        
+                        ForEach(0 ..< 3) { _ in
+                            PostView(width: proxy.size.width)
+                        }
+                        Spacer()
+                    }
+                    .toolbar { toolbar }
                 }
-                .toolbar { toolbar }
             }
         }
     }
