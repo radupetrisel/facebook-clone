@@ -23,6 +23,12 @@ struct ProfileView: View {
                     ProfileFriendsView(width: proxy.size.width)
                     
                     DividerView(width: proxy.size.width)
+                    
+                    ManageProfilePostsView(width: proxy.size.width)
+                    
+                    ForEach(0 ..< 2) { _ in
+                        PostView(width: proxy.size.width)
+                    }
                 }
             }
             .scrollIndicators(.hidden)

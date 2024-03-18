@@ -11,4 +11,5 @@ import SwiftUI
 extension ShapeStyle where Self == Color {
     static var darkGray: Color { .init(uiColor: .darkGray) }
     static var systemGray5: Color { .init(uiColor: .systemGray5) }
+    static var systemGray6: Color { .init(uiColor: .systemGray6) }
 }
