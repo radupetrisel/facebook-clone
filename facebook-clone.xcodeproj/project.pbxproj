@@ -20,6 +20,7 @@
 		7C57740B2BA8B6D00059193B /* ProfileOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57740A2BA8B6D00059193B /* ProfileOptionsView.swift */; };
 		7C57740D2BA8BB4F0059193B /* ManageProfilePostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57740C2BA8BB4F0059193B /* ManageProfilePostsView.swift */; };
 		7C57740F2BA8BBCF0059193B /* ProfilePostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57740E2BA8BBCF0059193B /* ProfilePostButton.swift */; };
+		7C5774112BA8BC830059193B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5774102BA8BC830059193B /* View+Extensions.swift */; };
 		7C7322782BA22BBD00892F52 /* facebook_cloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7322772BA22BBD00892F52 /* facebook_cloneApp.swift */; };
 		7C73227A2BA22BBD00892F52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7322792BA22BBD00892F52 /* ContentView.swift */; };
 		7C73227C2BA22BBF00892F52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C73227B2BA22BBF00892F52 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		7C57740A2BA8B6D00059193B /* ProfileOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsView.swift; sourceTree = "<group>"; };
 		7C57740C2BA8BB4F0059193B /* ManageProfilePostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfilePostsView.swift; sourceTree = "<group>"; };
 		7C57740E2BA8BBCF0059193B /* ProfilePostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostButton.swift; sourceTree = "<group>"; };
+		7C5774102BA8BC830059193B /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		7C7322742BA22BBD00892F52 /* facebook-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "facebook-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7322772BA22BBD00892F52 /* facebook_cloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facebook_cloneApp.swift; sourceTree = "<group>"; };
 		7C7322792BA22BBD00892F52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				7C5774062BA776FD0059193B /* ShapeStyle+Extensions.swift */,
+				7C5774102BA8BC830059193B /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				7C7322962BA22CBB00892F52 /* MainTabView.swift in Sources */,
 				7C5774042BA7768B0059193B /* ProfileHeaderButtonStyle.swift in Sources */,
 				7C5773FD2BA624050059193B /* PostView.swift in Sources */,
+				7C5774112BA8BC830059193B /* View+Extensions.swift in Sources */,
 				7C57740D2BA8BB4F0059193B /* ManageProfilePostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

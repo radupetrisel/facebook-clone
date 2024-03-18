@@ -25,8 +25,7 @@ struct ProfileFriendsView: View {
             HStack {
                 VStack {
                     Text("Friends")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .semiboldHeadline()
                     
                     Text("4 friends")
                         .font(.subheadline)
@@ -36,8 +35,7 @@ struct ProfileFriendsView: View {
                 Spacer()
                 
                 Text("Find friends")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+                    .semiboldHeadline()
                     .foregroundStyle(.blue)
             }
             
@@ -51,15 +49,13 @@ struct ProfileFriendsView: View {
                             .clipShape(.rect(cornerRadius: 8))
                         
                         Text("Jim Halpert")
-                            .font(.headline)
-                            .fontWeight(.semibold)
+                            .semiboldHeadline()
                     }
                 }
             }
             
             Text("See all friends")
-                .font(.headline)
-                .fontWeight(.semibold)
+                .semiboldHeadline()
                 .foregroundStyle(.darkGray)
                 .frame(width: width - 30, height: 44)
                 .background(.systemGray5)

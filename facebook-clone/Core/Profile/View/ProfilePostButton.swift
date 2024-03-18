@@ -20,8 +20,7 @@ struct ProfilePostButton: View {
                 .foregroundStyle(.red)
             
             Text(title)
-                .font(.headline)
-                .fontWeight(.semibold)
+                .semiboldHeadline()
                 .foregroundStyle(.darkGray)
         }
         .padding(.horizontal, 25)

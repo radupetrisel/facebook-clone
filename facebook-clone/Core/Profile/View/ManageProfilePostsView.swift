@@ -14,14 +14,12 @@ struct ManageProfilePostsView: View {
         VStack {
             HStack {
                 Text("Posts")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+                    .semiboldHeadline()
                 
                 Spacer()
                 
                 Text("Filters")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+                    .semiboldHeadline()
                     .foregroundStyle(.blue)
             }
             .padding(.horizontal)
@@ -67,8 +65,7 @@ struct ManageProfilePostsView: View {
                         .frame(width: 16, height: 16)
                     
                     Text("Manage posts")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .semiboldHeadline()
                 }
                 .frame(width: width - 30, height: 44)
                 .background(.systemGray5)

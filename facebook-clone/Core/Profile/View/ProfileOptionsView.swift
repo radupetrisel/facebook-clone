@@ -12,8 +12,7 @@ struct ProfileOptionsView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 24) {
                 Text("Posts")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+                    .semiboldHeadline()
                     .foregroundStyle(.blue)
                     .padding(.horizontal)
                     .padding(.vertical, 7)
@@ -21,13 +20,11 @@ struct ProfileOptionsView: View {
                     .clipShape(.rect(cornerRadius: 30))
                 
                 Text("Photos")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+                    .semiboldHeadline()
                     .foregroundStyle(.darkGray)
                 
                 Text("Reels")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+                    .semiboldHeadline()
                     .foregroundStyle(.darkGray)
             }
             .padding(.horizontal)
