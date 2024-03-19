@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @State private var showCreatePost = false
+    
     var body: some View {
         HStack {
             NavigationLink {
@@ -21,7 +23,9 @@ struct HeaderView: View {
                     .clipShape(.circle)
             }
             
-            Button(action: {}) {
+            Button {
+                showCreatePost = true
+            } label: {
                 HStack {
                     Text("What's on your mind?")
                     Spacer()
@@ -46,6 +50,7 @@ struct HeaderView: View {
         .padding(.horizontal)
         .padding(.top, 30)
         .padding(.bottom)
+        .fullScreenCover(isPresented: $showCreatePost, content: CreatePostView.init)
     }
 }
 
