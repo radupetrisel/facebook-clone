@@ -16,7 +16,7 @@ struct MainTabView: View {
             
             TabItem(tag: 1, systemImage: "play.tv", tabSelection: $tabSelection) { Text("Video") }
             
-            TabItem(tag: 2, systemImage: "person.2", tabSelection: $tabSelection) { Text("Friends") }
+            TabItem(tag: 2, systemImage: "person.2", tabSelection: $tabSelection) { FriendsView() }
             
             TabItem(tag: 3, imageName: "marketplace", tabSelection: $tabSelection) { Text("Marketplace") }
             
