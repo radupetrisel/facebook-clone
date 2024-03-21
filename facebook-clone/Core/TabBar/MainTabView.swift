@@ -18,7 +18,7 @@ struct MainTabView: View {
             
             TabItem(tag: 2, systemImage: "person.2", tabSelection: $tabSelection) { FriendsView() }
             
-            TabItem(tag: 3, imageName: "marketplace", tabSelection: $tabSelection) { Text("Marketplace") }
+            TabItem(tag: 3, imageName: "marketplace", tabSelection: $tabSelection) { MarketplaceView() }
             
             TabItem(tag: 4, systemImage: "text.justify", tabSelection: $tabSelection) { Text("Menu") }
         }
