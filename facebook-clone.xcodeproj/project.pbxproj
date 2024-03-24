@@ -27,6 +27,10 @@
 		7C57741A2BAB3BD60059193B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5774192BAB3BD60059193B /* TagView.swift */; };
 		7C57741D2BAC628C0059193B /* MarketplaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57741C2BAC628C0059193B /* MarketplaceView.swift */; };
 		7C57741F2BB09C190059193B /* MarketplaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57741E2BB09C190059193B /* MarketplaceButton.swift */; };
+		7C5774222BB09C7E0059193B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5774212BB09C7E0059193B /* MenuView.swift */; };
+		7C5774242BB0A40C0059193B /* ScreenWidthButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5774232BB0A40C0059193B /* ScreenWidthButtonStyle.swift */; };
+		7C5774262BB0A44A0059193B /* ShortcutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5774252BB0A44A0059193B /* ShortcutsView.swift */; };
+		7C5774282BB0A46E0059193B /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5774272BB0A46E0059193B /* MenuHeaderView.swift */; };
 		7C7322782BA22BBD00892F52 /* facebook_cloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7322772BA22BBD00892F52 /* facebook_cloneApp.swift */; };
 		7C73227A2BA22BBD00892F52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7322792BA22BBD00892F52 /* ContentView.swift */; };
 		7C73227C2BA22BBF00892F52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C73227B2BA22BBF00892F52 /* Assets.xcassets */; };
@@ -58,6 +62,10 @@
 		7C5774192BAB3BD60059193B /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		7C57741C2BAC628C0059193B /* MarketplaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceView.swift; sourceTree = "<group>"; };
 		7C57741E2BB09C190059193B /* MarketplaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceButton.swift; sourceTree = "<group>"; };
+		7C5774212BB09C7E0059193B /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		7C5774232BB0A40C0059193B /* ScreenWidthButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenWidthButtonStyle.swift; sourceTree = "<group>"; };
+		7C5774252BB0A44A0059193B /* ShortcutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsView.swift; sourceTree = "<group>"; };
+		7C5774272BB0A46E0059193B /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		7C7322742BA22BBD00892F52 /* facebook-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "facebook-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7322772BA22BBD00892F52 /* facebook_cloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facebook_cloneApp.swift; sourceTree = "<group>"; };
 		7C7322792BA22BBD00892F52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,13 +98,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7C5773FE2BA75F7E0059193B /* Custom Styles */ = {
+		7C5773FE2BA75F7E0059193B /* Button Styles */ = {
 			isa = PBXGroup;
 			children = (
 				7C5773FF2BA75F9C0059193B /* NavigationButtonStyle.swift */,
 				7C5774032BA7768B0059193B /* ProfileHeaderButtonStyle.swift */,
+				7C5774232BB0A40C0059193B /* ScreenWidthButtonStyle.swift */,
 			);
-			path = "Custom Styles";
+			path = "Button Styles";
 			sourceTree = "<group>";
 		};
 		7C5774052BA776F30059193B /* Extensions */ = {
@@ -122,6 +131,16 @@
 			children = (
 				7C57741C2BAC628C0059193B /* MarketplaceView.swift */,
 				7C57741E2BB09C190059193B /* MarketplaceButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C5774202BB09C790059193B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C5774212BB09C7E0059193B /* MenuView.swift */,
+				7C5774252BB0A44A0059193B /* ShortcutsView.swift */,
+				7C5774272BB0A46E0059193B /* MenuHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +256,7 @@
 		7C73228D2BA22C2000892F52 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				7C5774202BB09C790059193B /* View */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -281,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				7C5774052BA776F30059193B /* Extensions */,
-				7C5773FE2BA75F7E0059193B /* Custom Styles */,
+				7C5773FE2BA75F7E0059193B /* Button Styles */,
 				7C5773F12BA48E040059193B /* Views */,
 			);
 			path = Components;
@@ -387,8 +407,10 @@
 			files = (
 				7C57740B2BA8B6D00059193B /* ProfileOptionsView.swift in Sources */,
 				7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */,
+				7C5774282BB0A46E0059193B /* MenuHeaderView.swift in Sources */,
 				7C7322982BA337E500892F52 /* FeedView.swift in Sources */,
 				7C73229D2BA33DD600892F52 /* HeaderView.swift in Sources */,
+				7C5774262BB0A44A0059193B /* ShortcutsView.swift in Sources */,
 				7C5773F32BA48E120059193B /* DividerView.swift in Sources */,
 				7C73227A2BA22BBD00892F52 /* ContentView.swift in Sources */,
 				7C5774072BA776FD0059193B /* ShapeStyle+Extensions.swift in Sources */,
@@ -407,7 +429,9 @@
 				7C7322962BA22CBB00892F52 /* MainTabView.swift in Sources */,
 				7C5774042BA7768B0059193B /* ProfileHeaderButtonStyle.swift in Sources */,
 				7C5773FD2BA624050059193B /* PostView.swift in Sources */,
+				7C5774222BB09C7E0059193B /* MenuView.swift in Sources */,
 				7C5774112BA8BC830059193B /* View+Extensions.swift in Sources */,
+				7C5774242BB0A40C0059193B /* ScreenWidthButtonStyle.swift in Sources */,
 				7C57741D2BAC628C0059193B /* MarketplaceView.swift in Sources */,
 				7C57740D2BA8BB4F0059193B /* ManageProfilePostsView.swift in Sources */,
 				7C57741A2BAB3BD60059193B /* TagView.swift in Sources */,

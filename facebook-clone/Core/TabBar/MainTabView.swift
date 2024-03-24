@@ -20,7 +20,7 @@ struct MainTabView: View {
             
             TabItem(tag: 3, imageName: "marketplace", tabSelection: $tabSelection) { MarketplaceView() }
             
-            TabItem(tag: 4, systemImage: "text.justify", tabSelection: $tabSelection) { Text("Menu") }
+            TabItem(tag: 4, systemImage: "text.justify", tabSelection: $tabSelection) { MenuView() }
         }
         .onAppear {
             UITabBar.appearance().barTintColor = .white
