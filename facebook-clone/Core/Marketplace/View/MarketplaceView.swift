@@ -90,21 +90,3 @@ struct MarketplaceView: View {
         MarketplaceView()
     }
 }
-
-struct MarketplaceButton: View {
-    let title: String
-    let imageName: String
-    let width: CGFloat
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "square.and.pencil")
-            
-            Text("Sell")
-                .semiboldHeadline()
-        }
-        .frame(width: width * 0.45, height: 44)
-        .background(.systemGray5)
-        .clipShape(.capsule)
-    }
-}
