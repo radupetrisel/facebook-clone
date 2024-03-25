@@ -5,10 +5,11 @@
 //  Created by Radu Petrisel on 16.03.2024.
 //
 
+import AVKit
 import SwiftUI
 
 struct PostView: View {
-    let width: CGFloat
+    let isVideo: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -50,9 +51,16 @@ struct PostView: View {
             Text("Time to party")
                 .padding(.horizontal)
             
-            Image("office")
-                .resizable()
-                .scaledToFill()
+            if isVideo {
+                if let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4") {
+                    VideoPlayer(player: AVPlayer(url: url))
+                        .frame(height: 400)
+                }
+            } else {
+                Image("office")
+                    .resizable()
+                    .scaledToFill()
+            }
             
             HStack(spacing: 3) {
                 Image("like")
@@ -108,13 +116,11 @@ struct PostView: View {
             .font(.system(size: 12))
             .foregroundStyle(.facebookBlue)
             
-            DividerView(width: width - 15)
+            DividerView()
         }
     }
 }
 
 #Preview {
-    GeometryReader { proxy in
-        PostView(width: proxy.size.width)
-    }
+    PostView(isVideo: false)
 }

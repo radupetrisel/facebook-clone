@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct DividerView: View {
-    let width: CGFloat
-    
     var body: some View {
         Rectangle()
             .foregroundStyle(.quaternary)
-            .frame(width: width, height: 6)
+            .frame(height: 6)
+            .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    DividerView(width: 100)
+    DividerView()
 }

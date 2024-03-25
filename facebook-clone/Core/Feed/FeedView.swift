@@ -10,24 +10,22 @@ import SwiftUI
 struct FeedView: View {
     var body: some View {
         NavigationStack {
-            GeometryReader { proxy in
-                ScrollView {
-                    VStack {
-                        HeaderView()
-                        
-                        DividerView(width: proxy.size.width)
-                        
-                        StoryFeedView()
-                        
-                        DividerView(width: proxy.size.width)
-                        
-                        ForEach(0 ..< 3) { _ in
-                            PostView(width: proxy.size.width)
-                        }
-                        Spacer()
+            ScrollView {
+                VStack {
+                    HeaderView()
+                    
+                    DividerView()
+                    
+                    StoryFeedView()
+                    
+                    DividerView()
+                    
+                    ForEach(0 ..< 3) { _ in
+                        PostView(isVideo: false)
                     }
-                    .toolbar { toolbar }
+                    Spacer()
                 }
+                .toolbar { toolbar }
             }
         }
     }

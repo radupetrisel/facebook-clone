@@ -16,18 +16,18 @@ struct ProfileView: View {
                 VStack {
                     ProfileHeaderView(width: proxy.size.width)
                     
-                    DividerView(width: proxy.size.width)
+                    DividerView()
                     
                     ProfileOptionsView()
                     
                     ProfileFriendsView(width: proxy.size.width)
                     
-                    DividerView(width: proxy.size.width)
+                    DividerView()
                     
-                    ManageProfilePostsView(width: proxy.size.width)
+                    ManageProfilePostsView()
                     
                     ForEach(0 ..< 2) { _ in
-                        PostView(width: proxy.size.width)
+                        PostView(isVideo: false)
                     }
                 }
             }

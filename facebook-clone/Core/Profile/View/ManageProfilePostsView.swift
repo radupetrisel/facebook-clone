@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ManageProfilePostsView: View {
-    let width: CGFloat
-    
     var body: some View {
         VStack {
             HStack {
@@ -67,21 +65,22 @@ struct ManageProfilePostsView: View {
                     Text("Manage posts")
                         .semiboldHeadline()
                 }
-                .frame(width: width - 30, height: 44)
+                .frame(height: 44)
+                .frame(maxWidth: .infinity)
                 .background(.systemGray5)
                 .foregroundStyle(.darkGray)
                 .clipShape(.rect(cornerRadius: 8))
-                .padding(.vertical)
+                .padding()
             }
             .buttonStyle(.plain)
             
-            DividerView(width: width)
+            DividerView()
         }
     }
 }
 
 #Preview {
     GeometryReader { proxy in
-        ManageProfilePostsView(width: proxy.size.width)
+        ManageProfilePostsView()
     }
 }

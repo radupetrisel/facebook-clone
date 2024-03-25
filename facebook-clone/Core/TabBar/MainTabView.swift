@@ -14,7 +14,7 @@ struct MainTabView: View {
         TabView {
             TabItem(tag: 0, systemImage: "house", tabSelection: $tabSelection) { FeedView() }
             
-            TabItem(tag: 1, systemImage: "play.tv", tabSelection: $tabSelection) { Text("Video") }
+            TabItem(tag: 1, systemImage: "play.tv", tabSelection: $tabSelection) { VideoView() }
             
             TabItem(tag: 2, systemImage: "person.2", tabSelection: $tabSelection) { FriendsView() }
             
