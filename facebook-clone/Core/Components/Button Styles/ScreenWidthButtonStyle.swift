@@ -14,7 +14,7 @@ struct ScreenWidthButtonStyle: ButtonStyle {
             .semiboldHeadline()
             .frame(height: 44)
             .frame(maxWidth: .infinity)
-            .background(.systemGray5)
+            .background(.systemGray4)
             .clipShape(.rect(cornerRadius: 8))
     }
 }
