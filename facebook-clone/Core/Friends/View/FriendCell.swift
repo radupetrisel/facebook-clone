@@ -9,16 +9,18 @@ import SwiftUI
 
 
 struct FriendCell: View {
+    let user: User
+    
     var body: some View {
         HStack(alignment: .top) {
-            Image(.profilePic3)
+            Image(user.profileImageName ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 70, height: 70)
                 .clipShape(.circle)
             
             VStack(alignment: .leading) {
-                Text("Thomas Shelby")
+                Text("\(user.firstName) \(user.familyName)")
                     .semiboldHeadline()
                 
                 HStack {
@@ -38,5 +40,5 @@ struct FriendCell: View {
 }
 
 #Preview {
-    FriendCell()
+    FriendCell(user: FriendsViewModel().users[0])
 }
