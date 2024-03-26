@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3801532BB311C000200F46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801522BB311C000200F46 /* User.swift */; };
+		7C3801552BB312C000200F46 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801542BB312C000200F46 /* Post.swift */; };
+		7C3801572BB3138300200F46 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801562BB3138300200F46 /* Item.swift */; };
+		7C38015A2BB313CB00200F46 /* MarketplaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801592BB313CB00200F46 /* MarketplaceViewModel.swift */; };
 		7C5773F32BA48E120059193B /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F22BA48E120059193B /* DividerView.swift */; };
 		7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F42BA48E490059193B /* MyStoryCardView.swift */; };
 		7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F62BA494430059193B /* StoryFeedView.swift */; };
@@ -46,6 +50,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C3801522BB311C000200F46 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7C3801542BB312C000200F46 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		7C3801562BB3138300200F46 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7C3801592BB313CB00200F46 /* MarketplaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceViewModel.swift; sourceTree = "<group>"; };
 		7C5773F22BA48E120059193B /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		7C5773F42BA48E490059193B /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		7C5773F62BA494430059193B /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
@@ -97,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C3801582BB313C000200F46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C3801592BB313CB00200F46 /* MarketplaceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7C5773F12BA48E040059193B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +237,9 @@
 		7C7322872BA22BF400892F52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C3801522BB311C000200F46 /* User.swift */,
+				7C3801542BB312C000200F46 /* Post.swift */,
+				7C3801562BB3138300200F46 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +305,7 @@
 		7C73228E2BA22C2200892F52 /* Marketplace */ = {
 			isa = PBXGroup;
 			children = (
+				7C3801582BB313C000200F46 /* ViewModel */,
 				7C57741B2BAC62830059193B /* View */,
 			);
 			path = Marketplace;
@@ -429,7 +449,9 @@
 			files = (
 				7C57740B2BA8B6D00059193B /* ProfileOptionsView.swift in Sources */,
 				7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */,
+				7C3801572BB3138300200F46 /* Item.swift in Sources */,
 				7C57742A2BB1D02C0059193B /* MenuCell.swift in Sources */,
+				7C38015A2BB313CB00200F46 /* MarketplaceViewModel.swift in Sources */,
 				7C5774282BB0A46E0059193B /* MenuHeaderView.swift in Sources */,
 				7C7322982BA337E500892F52 /* FeedView.swift in Sources */,
 				7C73229D2BA33DD600892F52 /* HeaderView.swift in Sources */,
@@ -440,7 +462,9 @@
 				7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */,
 				7C5774162BAB388B0059193B /* FriendsView.swift in Sources */,
 				7C57741F2BB09C190059193B /* MarketplaceButton.swift in Sources */,
+				7C3801532BB311C000200F46 /* User.swift in Sources */,
 				7C5774132BAA0CB50059193B /* CreatePostView.swift in Sources */,
+				7C3801552BB312C000200F46 /* Post.swift in Sources */,
 				7C5774022BA76FA90059193B /* ProfileHeaderView.swift in Sources */,
 				7C5773F92BA494930059193B /* StoryCardView.swift in Sources */,
 				7C5774002BA75F9C0059193B /* NavigationButtonStyle.swift in Sources */,
