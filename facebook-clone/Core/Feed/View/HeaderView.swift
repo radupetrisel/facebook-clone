@@ -10,13 +10,15 @@ import SwiftUI
 struct HeaderView: View {
     @State private var showCreatePost = false
     
+    let viewModel: FeedViewModel
+    
     var body: some View {
         HStack {
             NavigationLink {
                 ProfileView()
                     .navigationBarBackButtonHidden()
             } label: {
-                Image("profilePic")
+                Image(viewModel.currentUser.profileImageName ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 40, height: 40)
@@ -55,5 +57,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    HeaderView(viewModel: .init())
 }

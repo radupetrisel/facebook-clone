@@ -10,11 +10,13 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.dismiss) var dismiss
     
+    @State private var viewModel = FeedViewModel()
+    
     var body: some View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
-                    ProfileHeaderView(width: proxy.size.width)
+                    ProfileHeaderView(user: viewModel.currentUser, width: proxy.size.width)
                     
                     DividerView()
                     
@@ -26,9 +28,7 @@ struct ProfileView: View {
                     
                     ManageProfilePostsView()
                     
-                    ForEach(0 ..< 2) { _ in
-                        PostView(isVideo: false)
-                    }
+                    ForEach(viewModel.posts, content: PostView.init(post:))
                 }
             }
             .scrollIndicators(.hidden)

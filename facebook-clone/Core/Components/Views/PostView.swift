@@ -9,19 +9,19 @@ import AVKit
 import SwiftUI
 
 struct PostView: View {
-    let isVideo: Bool
+    let post: Post
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("profilePic")
+                Image(post.user?.profileImageName ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .clipShape(.circle)
                 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Omar Thamri")
+                    Text(post.user?.fullName ?? "")
                         .font(.system(size: 14, weight: .semibold))
                     
                     HStack(spacing: 5) {
@@ -48,16 +48,16 @@ struct PostView: View {
             }
             .padding(.horizontal)
             
-            Text("Time to party")
+            Text(post.title)
                 .padding(.horizontal)
             
-            if isVideo {
-                if let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4") {
+            if post.isVideo {
+                if let url = URL(string: post.url) {
                     VideoPlayer(player: AVPlayer(url: url))
                         .frame(height: 400)
                 }
             } else {
-                Image("office")
+                Image(post.url)
                     .resizable()
                     .scaledToFill()
             }
@@ -67,7 +67,7 @@ struct PostView: View {
                     .resizable()
                     .frame(width: 18, height: 18)
                 
-                Text("5")
+                Text(String(post.likes))
                 
                 Spacer()
                 
@@ -75,7 +75,7 @@ struct PostView: View {
                 Circle()
                     .frame(width: 2, height: 2)
                     .padding(.horizontal, 3)
-                Text("2 shares")
+                Text("\(post.shares) shares")
             }
             .font(.system(size: 12))
             .foregroundStyle(.facebookBlue)
@@ -122,5 +122,5 @@ struct PostView: View {
 }
 
 #Preview {
-    PostView(isVideo: false)
+    PostView(post: FeedViewModel().posts[0])
 }

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct MyStoryCardView: View {
+    let user: User
+    
     var body: some View {
         ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 15)
                 .foregroundStyle(Color(.systemGray6))
                 .frame(width: 100, height: 170)
             
-            Image("profilePic")
+            Image(user.profileImageName ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 110)
@@ -47,5 +49,5 @@ struct MyStoryCardView: View {
 }
 
 #Preview {
-    MyStoryCardView()
+    MyStoryCardView(user: FeedViewModel().currentUser)
 }

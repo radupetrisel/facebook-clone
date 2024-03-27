@@ -25,4 +25,8 @@ struct User: Identifiable, Hashable, Codable {
     var friendRequestsIds: [String]
     
     var isCurrentUser: Bool
+    
+    var fullName: String {
+        "\(firstName) \(familyName)"
+    }
 }

@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct FeedView: View {
+    @State private var viewModel = FeedViewModel()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    HeaderView()
+                    HeaderView(viewModel: viewModel)
                     
                     DividerView()
                     
-                    StoryFeedView()
+                    StoryFeedView(viewModel: viewModel)
                     
                     DividerView()
                     
-                    ForEach(0 ..< 3) { _ in
-                        PostView(isVideo: false)
-                    }
+                    ForEach(viewModel.posts, content: PostView.init(post:))
                     Spacer()
                 }
                 .toolbar { toolbar }

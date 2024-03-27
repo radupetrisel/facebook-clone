@@ -16,6 +16,8 @@ struct ProfileFriendsView: View {
     
     private let width: CGFloat
     
+    @State private var viewModel = FeedViewModel()
+    
     init(width: CGFloat) {
         self.width = width
     }
@@ -27,7 +29,7 @@ struct ProfileFriendsView: View {
                     Text("Friends")
                         .semiboldHeadline()
                     
-                    Text("4 friends")
+                    Text("\(viewModel.friends.count) friends")
                         .font(.subheadline)
                         .foregroundStyle(.gray)
                 }
@@ -40,15 +42,15 @@ struct ProfileFriendsView: View {
             }
             
             LazyVGrid(columns: gridItems) {
-                ForEach(0 ..< 4) { _ in
+                ForEach(viewModel.friends) { user in
                     VStack {
-                        Image("profilePic1")
+                        Image(user.profileImageName ?? "")
                             .resizable()
                             .scaledToFill()
                             .frame(width: width / 3 - 20, height: width / 3 - 20)
                             .clipShape(.rect(cornerRadius: 8))
                         
-                        Text("Jim Halpert")
+                        Text(user.fullName)
                             .semiboldHeadline()
                     }
                 }

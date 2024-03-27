@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct StoryFeedView: View {
+    let viewModel: FeedViewModel
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                MyStoryCardView()
+                MyStoryCardView(user: viewModel.currentUser)
                 
-                ForEach(0 ..< 3) { _ in
-                    StoryCardView()
-                }
+                ForEach(viewModel.friends, content: StoryCardView.init(user:))
             }
         }
         .scrollIndicators(.hidden)
@@ -24,5 +24,5 @@ struct StoryFeedView: View {
 }
 
 #Preview {
-    StoryFeedView()
+    StoryFeedView(viewModel: .init())
 }

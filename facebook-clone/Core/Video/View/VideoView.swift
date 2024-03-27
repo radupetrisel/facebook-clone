@@ -14,7 +14,7 @@ struct VideoView: View {
                 VideoOptionView()
                 
                 ForEach(0 ..< 3) { _ in
-                    PostView(isVideo: true)
+                    PostView(post: FeedViewModel().posts[0])
                 }
             }
             .scrollIndicators(.hidden)
