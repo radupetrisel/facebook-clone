@@ -16,7 +16,7 @@ struct ProfileView: View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
-                    ProfileHeaderView(user: viewModel.currentUser, width: proxy.size.width)
+                    ProfileHeaderView(viewModel: viewModel, width: proxy.size.width)
                     
                     DividerView()
                     
@@ -28,7 +28,7 @@ struct ProfileView: View {
                     
                     ManageProfilePostsView()
                     
-                    ForEach(viewModel.posts, content: PostView.init(post:))
+                    ForEach(viewModel.currentUserPosts, content: PostView.init(post:))
                 }
             }
             .scrollIndicators(.hidden)

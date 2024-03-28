@@ -5,35 +5,55 @@
 //  Created by Radu Petrisel on 17.03.2024.
 //
 
+import PhotosUI
 import SwiftUI
 
 
 struct ProfileHeaderView: View {
-    let user: User
+    @State private var showProfileImagePicker = false
+    @State private var selectedProfileImage: PhotosPickerItem?
+    @State private var profileImage: Image = .init(.noProfile)
+    
+    @State private var showCoverImagePicker = false
+    @State private var selectedCoverImage: PhotosPickerItem?
+    @State private var coverImage: Image = .init(.coverPicture)
+    
+    let viewModel: FeedViewModel
     let width: CGFloat
     
+    var user: User { viewModel.currentUser }
+    
     var body: some View {
+        @Bindable var viewModel = viewModel
         VStack {
-            Image(user.coverImageName ?? "")
-                .resizable()
-                .scaledToFill()
-                .frame(width: width, height: 250)
+            Button {
+                showCoverImagePicker.toggle()
+            } label: {
+                coverImage
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: width, height: 250)
+            }
             
             Color.white
                 .frame(height: 180)
         }
         .overlay {
             VStack(alignment: .leading) {
-                Image(user.profileImageName ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 120, height: 120)
-                    .clipShape(.circle)
-                    .overlay {
-                        Circle()
-                            .stroke(Color(.systemGray6), lineWidth: 3)
-                    }
-                    .padding(.top, 170)
+                Button {
+                    showProfileImagePicker.toggle()
+                } label: {
+                    profileImage
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 120, height: 120)
+                        .clipShape(.circle)
+                        .overlay {
+                            Circle()
+                                .stroke(Color(.systemGray6), lineWidth: 3)
+                        }
+                        .padding(.top, 170)
+                }
                 
                 Text(user.fullName)
                     .font(.title)
@@ -69,11 +89,27 @@ struct ProfileHeaderView: View {
             }
             .padding(.horizontal)
         }
+        .onChange(of: selectedProfileImage) {
+            Task { @MainActor in
+                if let profileImage = try? await viewModel.loadImage(fromItem: selectedProfileImage) {
+                    self.profileImage = profileImage
+                }
+            }
+        }
+        .onChange(of: selectedCoverImage) {
+            Task { @MainActor in
+                if let coverImage = try? await viewModel.loadImage(fromItem: selectedCoverImage) {
+                    self.coverImage = coverImage
+                }
+            }
+        }
+        .photosPicker(isPresented: $showProfileImagePicker, selection: $selectedProfileImage)
+        .photosPicker(isPresented: $showCoverImagePicker, selection: $selectedCoverImage)
     }
 }
 
 #Preview {
     GeometryReader { proxy in
-        ProfileHeaderView(user: FeedViewModel().currentUser, width: proxy.size.width)
+        ProfileHeaderView(viewModel: FeedViewModel(), width: proxy.size.width)
     }
 }

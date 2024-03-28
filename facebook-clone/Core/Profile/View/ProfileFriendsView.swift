@@ -51,6 +51,7 @@ struct ProfileFriendsView: View {
                             .clipShape(.rect(cornerRadius: 8))
                         
                         Text(user.fullName)
+                            .lineLimit(1)
                             .semiboldHeadline()
                     }
                 }

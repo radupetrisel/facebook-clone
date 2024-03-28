@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import PhotosUI
+import SwiftUI
 
 @Observable
 final class FeedViewModel {
@@ -31,20 +33,33 @@ final class FeedViewModel {
         users.first(where: { $0.isCurrentUser }) ?? users[0]
     }
     
+    private(set) var currentUserPosts: [Post] = []
+    
     init() {
         setupFriends()
         setupPosts()
+        setupCurrentUserPostsIndices()
     }
     
     private func setupFriends() {
-        if let currentUser = users.first(where: { $0.isCurrentUser }) {
-            friends = users.filter { currentUser.friendsIds.contains($0.id) }
-        }
+        friends = users.filter { currentUser.friendsIds.contains($0.id) }
     }
     
     private func setupPosts() {
         for index in posts.indices {
             posts[index].user = users.first(where: { $0.id == posts[index].id })
         }
+    }
+    
+    private func setupCurrentUserPostsIndices() {
+        currentUserPosts = posts.filter { $0.userId == currentUser.id }
+    }
+    
+    func loadImage(fromItem item: PhotosPickerItem?) async throws -> Image {
+        guard let item else { return Image(.noProfile) }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { return Image(.noProfile) }
+        guard let uiImage = UIImage(data: data) else { return Image(.noProfile) }
+        
+        return Image(uiImage: uiImage)
     }
 }
