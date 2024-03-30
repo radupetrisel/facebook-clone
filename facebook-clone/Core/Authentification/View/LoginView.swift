@@ -23,7 +23,7 @@ struct LoginView: View {
                     TextField("Mobile number or email address", text: $viewModel.phoneNumberOrEmail)
                         .textFieldStyle(.loginScreen)
                     
-                    TextField("Password", text: $viewModel.password)
+                    SecureField("Password", text: $viewModel.password)
                         .textContentType(.password)
                         .textFieldStyle(.loginScreen)
                     
@@ -39,10 +39,22 @@ struct LoginView: View {
                 Spacer()
                 
                 VStack(spacing: 24) {
-                    Button("Create a new account") {
-                        
+                    NavigationLink {
+                        AddNameView()
+                            .navigationBarBackButtonHidden()
+                    } label: {
+                        Text("Create new account")
+                            .semiboldHeadline()
+                            .frame(height: 44)
+                            .frame(maxWidth: .infinity)
+                            .background(.clear)
+                            .foregroundStyle(.blue)
+                            .clipShape(.rect(cornerRadius: 8))
+                            .overlay {
+                                Capsule()
+                                    .stroke(.blue, lineWidth: 1)
+                            }
                     }
-                    .buttonStyle(.createNewAccount)
                     
                     HStack(spacing: 5) {
                         Image(.meta)
