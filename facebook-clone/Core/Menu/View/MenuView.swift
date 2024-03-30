@@ -27,7 +27,7 @@ struct MenuView: View {
                     Button("Log Out") {
                         showLogoutAlert.toggle()
                     }
-                    .buttonStyle(.screenWidthButtonStyle)
+                    .buttonStyle(.screenWidth)
                     .padding(.vertical, 5)
                     .padding(.horizontal)
                 }

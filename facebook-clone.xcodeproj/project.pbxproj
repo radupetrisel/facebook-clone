@@ -13,6 +13,11 @@
 		7C38015A2BB313CB00200F46 /* MarketplaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801592BB313CB00200F46 /* MarketplaceViewModel.swift */; };
 		7C38015D2BB3156D00200F46 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38015C2BB3156D00200F46 /* FriendsViewModel.swift */; };
 		7C3801612BB473B400200F46 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801602BB473B400200F46 /* FeedViewModel.swift */; };
+		7C3801672BB88CEE00200F46 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801662BB88CEE00200F46 /* LoginView.swift */; };
+		7C3801692BB88D7900200F46 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801682BB88D7900200F46 /* LoginViewModel.swift */; };
+		7C38016D2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38016C2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift */; };
+		7C38016F2BB8902900200F46 /* AnyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38016E2BB8902900200F46 /* AnyButtonStyle.swift */; };
+		7C3801712BB892A700200F46 /* CreateNewAccountButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801702BB892A700200F46 /* CreateNewAccountButtonStyle.swift */; };
 		7C5773F32BA48E120059193B /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F22BA48E120059193B /* DividerView.swift */; };
 		7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F42BA48E490059193B /* MyStoryCardView.swift */; };
 		7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F62BA494430059193B /* StoryFeedView.swift */; };
@@ -58,6 +63,11 @@
 		7C3801592BB313CB00200F46 /* MarketplaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceViewModel.swift; sourceTree = "<group>"; };
 		7C38015C2BB3156D00200F46 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		7C3801602BB473B400200F46 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		7C3801662BB88CEE00200F46 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7C3801682BB88D7900200F46 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7C38016C2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTextFieldStyle.swift; sourceTree = "<group>"; };
+		7C38016E2BB8902900200F46 /* AnyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyButtonStyle.swift; sourceTree = "<group>"; };
+		7C3801702BB892A700200F46 /* CreateNewAccountButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountButtonStyle.swift; sourceTree = "<group>"; };
 		7C5773F22BA48E120059193B /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		7C5773F42BA48E490059193B /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		7C5773F62BA494430059193B /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
@@ -145,6 +155,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7C3801642BB88CDA00200F46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C3801682BB88D7900200F46 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7C3801652BB88CE200200F46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C3801662BB88CEE00200F46 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C38016A2BB88F6800200F46 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				7C5773FF2BA75F9C0059193B /* NavigationButtonStyle.swift */,
+				7C5774032BA7768B0059193B /* ProfileHeaderButtonStyle.swift */,
+				7C5774232BB0A40C0059193B /* ScreenWidthButtonStyle.swift */,
+				7C38016E2BB8902900200F46 /* AnyButtonStyle.swift */,
+				7C3801702BB892A700200F46 /* CreateNewAccountButtonStyle.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		7C38016B2BB88F7000200F46 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				7C38016C2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		7C5773F12BA48E040059193B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,14 +201,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7C5773FE2BA75F7E0059193B /* Button Styles */ = {
+		7C5773FE2BA75F7E0059193B /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				7C5773FF2BA75F9C0059193B /* NavigationButtonStyle.swift */,
-				7C5774032BA7768B0059193B /* ProfileHeaderButtonStyle.swift */,
-				7C5774232BB0A40C0059193B /* ScreenWidthButtonStyle.swift */,
+				7C38016B2BB88F7000200F46 /* TextField */,
+				7C38016A2BB88F6800200F46 /* Button */,
 			);
-			path = "Button Styles";
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		7C5774052BA776F30059193B /* Extensions */ = {
@@ -373,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				7C5774052BA776F30059193B /* Extensions */,
-				7C5773FE2BA75F7E0059193B /* Button Styles */,
+				7C5773FE2BA75F7E0059193B /* Styles */,
 				7C5773F12BA48E040059193B /* Views */,
 			);
 			path = Components;
@@ -382,6 +427,8 @@
 		7C7322932BA22C3000892F52 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
+				7C3801652BB88CE200200F46 /* View */,
+				7C3801642BB88CDA00200F46 /* ViewModel */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -489,6 +536,7 @@
 				7C5773F32BA48E120059193B /* DividerView.swift in Sources */,
 				7C73227A2BA22BBD00892F52 /* ContentView.swift in Sources */,
 				7C38015D2BB3156D00200F46 /* FriendsViewModel.swift in Sources */,
+				7C38016D2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift in Sources */,
 				7C5774072BA776FD0059193B /* ShapeStyle+Extensions.swift in Sources */,
 				7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */,
 				7C5774162BAB388B0059193B /* FriendsView.swift in Sources */,
@@ -497,8 +545,11 @@
 				7C5774132BAA0CB50059193B /* CreatePostView.swift in Sources */,
 				7C3801552BB312C000200F46 /* Post.swift in Sources */,
 				7C5774022BA76FA90059193B /* ProfileHeaderView.swift in Sources */,
+				7C3801692BB88D7900200F46 /* LoginViewModel.swift in Sources */,
 				7C5773F92BA494930059193B /* StoryCardView.swift in Sources */,
+				7C3801712BB892A700200F46 /* CreateNewAccountButtonStyle.swift in Sources */,
 				7C5774002BA75F9C0059193B /* NavigationButtonStyle.swift in Sources */,
+				7C38016F2BB8902900200F46 /* AnyButtonStyle.swift in Sources */,
 				7C5774092BA8B6A40059193B /* ProfileFriendsView.swift in Sources */,
 				7C73229B2BA33B3400892F52 /* ProfileView.swift in Sources */,
 				7C5774182BAB3BB20059193B /* FriendCell.swift in Sources */,
@@ -516,6 +567,7 @@
 				7C57742D2BB1FB6B0059193B /* VideoView.swift in Sources */,
 				7C57741D2BAC628C0059193B /* MarketplaceView.swift in Sources */,
 				7C57740D2BA8BB4F0059193B /* ManageProfilePostsView.swift in Sources */,
+				7C3801672BB88CEE00200F46 /* LoginView.swift in Sources */,
 				7C57741A2BAB3BD60059193B /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

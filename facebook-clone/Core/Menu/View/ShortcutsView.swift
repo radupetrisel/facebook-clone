@@ -52,7 +52,7 @@ struct ShortcutsView: View {
             Button("See more") {
                 
             }
-            .buttonStyle(.screenWidthButtonStyle)
+            .buttonStyle(.screenWidth)
             .padding(.vertical, 5)
         }
         .padding(.horizontal)

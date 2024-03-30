@@ -69,18 +69,18 @@ struct ProfileHeaderView: View {
                     Button("Add to story", systemImage: "plus") {
                         
                     }
-                    .buttonStyle(.profileHeaderButtonStyle(background: .blue, foreground: .white))
+                    .buttonStyle(.profileHeader(background: .blue, foreground: .white))
                     
                     Button("Edit profile", systemImage: "pencil") {
                         
                     }
-                    .buttonStyle(.profileHeaderButtonStyle(background: .quaternary, foreground: .darkGray))
+                    .buttonStyle(.profileHeader(background: .quaternary, foreground: .darkGray))
                     
                     Button("More", systemImage: "ellipsis") {
                         
                     }
                     .labelStyle(.iconOnly)
-                    .buttonStyle(.profileHeaderButtonStyle(background: .quaternary, foreground: .darkGray))
+                    .buttonStyle(.profileHeader(background: .quaternary, foreground: .darkGray))
                 }
                 
                 HStack {
