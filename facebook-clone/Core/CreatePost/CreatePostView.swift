@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CreatePostView: View {
-    @Environment(\.dismiss) var dismiss
-    
     @State private var text: String = ""
     
     var body: some View {
@@ -91,15 +89,10 @@ struct CreatePostView: View {
     
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
-        ToolbarItem(placement: .topBarLeading) {
-            HStack {
-                Button("Back", systemImage: "arrow.left") {
-                    dismiss()
-                }
-                .buttonStyle(.navigationButtonStyle)
-                
-                Text("Create Post")
-            }
+        ToolbarItemGroup(placement: .topBarLeading) {
+            CustomBackButton()
+            
+            Text("Create Post")
         }
         
         ToolbarItem(placement: .topBarTrailing) {

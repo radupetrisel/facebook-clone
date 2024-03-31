@@ -19,6 +19,11 @@
 		7C38016F2BB8902900200F46 /* AnyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38016E2BB8902900200F46 /* AnyButtonStyle.swift */; };
 		7C3801732BB893D500200F46 /* AddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801722BB893D500200F46 /* AddNameView.swift */; };
 		7C3801752BB8953B00200F46 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801742BB8953B00200F46 /* RegistrationViewModel.swift */; };
+		7C3801772BB9CD2200200F46 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801762BB9CD2200200F46 /* GenderView.swift */; };
+		7C3801792BB9D1FD00200F46 /* RegistrationNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801782BB9D1FD00200F46 /* RegistrationNavigationLink.swift */; };
+		7C38017B2BB9D30400200F46 /* AlreadyHaveAnAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38017A2BB9D30400200F46 /* AlreadyHaveAnAccountView.swift */; };
+		7C38017D2BB9D37900200F46 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38017C2BB9D37900200F46 /* AgeView.swift */; };
+		7C38017F2BB9D3B200200F46 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38017E2BB9D3B200200F46 /* CustomBackButton.swift */; };
 		7C5773F32BA48E120059193B /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F22BA48E120059193B /* DividerView.swift */; };
 		7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F42BA48E490059193B /* MyStoryCardView.swift */; };
 		7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F62BA494430059193B /* StoryFeedView.swift */; };
@@ -70,6 +75,11 @@
 		7C38016E2BB8902900200F46 /* AnyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyButtonStyle.swift; sourceTree = "<group>"; };
 		7C3801722BB893D500200F46 /* AddNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNameView.swift; sourceTree = "<group>"; };
 		7C3801742BB8953B00200F46 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		7C3801762BB9CD2200200F46 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		7C3801782BB9D1FD00200F46 /* RegistrationNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNavigationLink.swift; sourceTree = "<group>"; };
+		7C38017A2BB9D30400200F46 /* AlreadyHaveAnAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlreadyHaveAnAccountView.swift; sourceTree = "<group>"; };
+		7C38017C2BB9D37900200F46 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
+		7C38017E2BB9D3B200200F46 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		7C5773F22BA48E120059193B /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		7C5773F42BA48E490059193B /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		7C5773F62BA494430059193B /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
@@ -171,6 +181,8 @@
 			children = (
 				7C3801662BB88CEE00200F46 /* LoginView.swift */,
 				7C3801722BB893D500200F46 /* AddNameView.swift */,
+				7C3801762BB9CD2200200F46 /* GenderView.swift */,
+				7C38017C2BB9D37900200F46 /* AgeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +212,9 @@
 				7C5773F22BA48E120059193B /* DividerView.swift */,
 				7C5773FC2BA624050059193B /* PostView.swift */,
 				7C5774192BAB3BD60059193B /* TagView.swift */,
+				7C3801782BB9D1FD00200F46 /* RegistrationNavigationLink.swift */,
+				7C38017A2BB9D30400200F46 /* AlreadyHaveAnAccountView.swift */,
+				7C38017E2BB9D3B200200F46 /* CustomBackButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -528,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C57740B2BA8B6D00059193B /* ProfileOptionsView.swift in Sources */,
+				7C3801772BB9CD2200200F46 /* GenderView.swift in Sources */,
 				7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */,
 				7C3801572BB3138300200F46 /* Item.swift in Sources */,
 				7C57742A2BB1D02C0059193B /* MenuCell.swift in Sources */,
@@ -542,6 +558,7 @@
 				7C38016D2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift in Sources */,
 				7C3801752BB8953B00200F46 /* RegistrationViewModel.swift in Sources */,
 				7C5774072BA776FD0059193B /* ShapeStyle+Extensions.swift in Sources */,
+				7C38017B2BB9D30400200F46 /* AlreadyHaveAnAccountView.swift in Sources */,
 				7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */,
 				7C5774162BAB388B0059193B /* FriendsView.swift in Sources */,
 				7C57741F2BB09C190059193B /* MarketplaceButton.swift in Sources */,
@@ -550,6 +567,7 @@
 				7C3801552BB312C000200F46 /* Post.swift in Sources */,
 				7C5774022BA76FA90059193B /* ProfileHeaderView.swift in Sources */,
 				7C3801692BB88D7900200F46 /* LoginViewModel.swift in Sources */,
+				7C3801792BB9D1FD00200F46 /* RegistrationNavigationLink.swift in Sources */,
 				7C5773F92BA494930059193B /* StoryCardView.swift in Sources */,
 				7C5774002BA75F9C0059193B /* NavigationButtonStyle.swift in Sources */,
 				7C38016F2BB8902900200F46 /* AnyButtonStyle.swift in Sources */,
@@ -566,10 +584,12 @@
 				7C5774222BB09C7E0059193B /* MenuView.swift in Sources */,
 				7C3801732BB893D500200F46 /* AddNameView.swift in Sources */,
 				7C57742F2BB1FCE40059193B /* VideoOptionViewModifier.swift in Sources */,
+				7C38017F2BB9D3B200200F46 /* CustomBackButton.swift in Sources */,
 				7C5774112BA8BC830059193B /* SemiboldHeadlineViewModifier.swift in Sources */,
 				7C5774242BB0A40C0059193B /* ScreenWidthButtonStyle.swift in Sources */,
 				7C57742D2BB1FB6B0059193B /* VideoView.swift in Sources */,
 				7C57741D2BAC628C0059193B /* MarketplaceView.swift in Sources */,
+				7C38017D2BB9D37900200F46 /* AgeView.swift in Sources */,
 				7C57740D2BA8BB4F0059193B /* ManageProfilePostsView.swift in Sources */,
 				7C3801672BB88CEE00200F46 /* LoginView.swift in Sources */,
 				7C57741A2BAB3BD60059193B /* TagView.swift in Sources */,

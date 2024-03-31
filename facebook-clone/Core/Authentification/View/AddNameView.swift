@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AddNameView: View {
-    @Environment(\.dismiss) private var dismiss
-    
     @State private var viewModel = RegistrationViewModel()
     
     var body: some View {
@@ -31,31 +29,16 @@ struct AddNameView: View {
             }
             
             NavigationLink {
-                Text("Age view")
+                AgeView(viewModel: viewModel)
+                    .navigationBarBackButtonHidden()
             } label: {
-                Text("Next")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .frame(height: 44)
-                    .frame(maxWidth: .infinity)
-                    .background(.blue)
-                    .foregroundStyle(.white)
-                    .clipShape(.capsule)
-                    .padding(.vertical)
+                RegistrationNavigationLinkLabel()
             }
+            .padding(.vertical)
             
             Spacer()
             
-            HStack {
-                Spacer()
-                
-                Text("Already have an account?")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.blue)
-                
-                Spacer()
-            }
+            AlreadyHaveAnAccountView()
         }
         .padding()
         .toolbar { toolbar }
@@ -65,12 +48,7 @@ struct AddNameView: View {
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
-            Button("Back", systemImage: "arrow.backward") {
-                dismiss()
-            }
-            .buttonStyle(.plain)
-            .labelStyle(.iconOnly)
-            .imageScale(.large)
+            CustomBackButton()
         }
     }
 }

@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @Environment(\.dismiss) var dismiss
-    
     @State private var viewModel = FeedViewModel()
     
     var body: some View {
@@ -40,8 +38,7 @@ struct ProfileView: View {
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
-            Button("Back", systemImage: "arrow.left") { dismiss() }
-                .buttonStyle(.navigationButtonStyle)
+            CustomBackButton()
         }
         
         ToolbarItem(placement: .topBarTrailing) {
