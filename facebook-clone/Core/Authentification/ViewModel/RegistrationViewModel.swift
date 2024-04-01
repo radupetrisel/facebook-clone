@@ -16,6 +16,8 @@ final class RegistrationViewModel {
     let genderChoices: [GenderChoice] = GenderChoice.allCases
     
     var age: Int = 18
+    
+    var email: String = ""
 }
 
 enum GenderChoice: String, CaseIterable {
