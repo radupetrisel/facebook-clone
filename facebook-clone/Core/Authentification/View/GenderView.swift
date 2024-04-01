@@ -65,7 +65,9 @@ struct GenderView: View {
             .clipShape(.rect(cornerRadius: 10))
             
             NavigationLink {
-                Text("email address")
+                AgreementView()
+                    .navigationBarBackButtonHidden()
+//                Text("email address")
             } label: {
                 RegistrationNavigationLinkLabel()
             }
