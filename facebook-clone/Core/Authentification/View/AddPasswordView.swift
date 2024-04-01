@@ -1,5 +1,5 @@
 //
-//  AddEmailView.swift
+//  AddPasswordView.swift
 //  facebook-clone
 //
 //  Created by Radu Petrisel on 01.04.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddEmailView: View {
+struct AddPasswordView: View {
     @State private var viewModel: RegistrationViewModel
     
     init(viewModel: RegistrationViewModel) {
@@ -16,38 +16,26 @@ struct AddEmailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
-            Text("What's your email address?")
+            Text("Create a password")
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.top)
             
-            Text("Enter the email address at which you can be contacted. No one will see this on your profile.")
+            Text("Create a password whith at least 6 letters or numbers. It should be something that others can't guess.")
                 .font(.footnote)
             
-            TextField("Email address", text: $viewModel.email)
+            SecureField("Password", text: $viewModel.password)
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.never)
                 .textFieldStyle(.loginScreen)
             
-            Group {
-                Text("You'll also recieve emails trom us and can opt out anytime.")
-                + Text(" Learn more")
-                    .foregroundStyle(.blue)
-            }
-            .font(.footnote)
-            
             NavigationLink {
-                AddPasswordView(viewModel: viewModel)
+                AgreementView()
                     .navigationBarBackButtonHidden()
             } label: {
                 RegistrationNavigationLinkLabel()
             }
-            .padding(.top)
-
-            NavigationLink {
-                Text("destination")
-            } label: {
-                RegistrationNavigationLinkLabel(title: "Sign up with Mobile Number", background: .white, foreground: .darkGray)
-            }
-
+            
             Spacer()
             
             AlreadyHaveAnAccountView()
@@ -67,6 +55,6 @@ struct AddEmailView: View {
 
 #Preview {
     NavigationStack {
-        AddEmailView(viewModel: RegistrationViewModel())
+        AddPasswordView(viewModel: RegistrationViewModel())
     }
 }

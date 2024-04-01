@@ -18,6 +18,8 @@ final class RegistrationViewModel {
     var age: Int = 18
     
     var email: String = ""
+    
+    var password: String = ""
 }
 
 enum GenderChoice: String, CaseIterable {

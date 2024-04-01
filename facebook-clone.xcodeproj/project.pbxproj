@@ -26,6 +26,7 @@
 		7C38017F2BB9D3B200200F46 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38017E2BB9D3B200200F46 /* CustomBackButton.swift */; };
 		7C3801832BBB212C00200F46 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801822BBB212C00200F46 /* AgreementView.swift */; };
 		7C3801852BBB23E500200F46 /* AddEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801842BBB23E500200F46 /* AddEmailView.swift */; };
+		7C3801872BBB264D00200F46 /* AddPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801862BBB264D00200F46 /* AddPasswordView.swift */; };
 		7C5773F32BA48E120059193B /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F22BA48E120059193B /* DividerView.swift */; };
 		7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F42BA48E490059193B /* MyStoryCardView.swift */; };
 		7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F62BA494430059193B /* StoryFeedView.swift */; };
@@ -84,6 +85,7 @@
 		7C38017E2BB9D3B200200F46 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		7C3801822BBB212C00200F46 /* AgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
 		7C3801842BBB23E500200F46 /* AddEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmailView.swift; sourceTree = "<group>"; };
+		7C3801862BBB264D00200F46 /* AddPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPasswordView.swift; sourceTree = "<group>"; };
 		7C5773F22BA48E120059193B /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		7C5773F42BA48E490059193B /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		7C5773F62BA494430059193B /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				7C38017C2BB9D37900200F46 /* AgeView.swift */,
 				7C3801762BB9CD2200200F46 /* GenderView.swift */,
 				7C3801842BBB23E500200F46 /* AddEmailView.swift */,
+				7C3801862BBB264D00200F46 /* AddPasswordView.swift */,
 				7C3801822BBB212C00200F46 /* AgreementView.swift */,
 			);
 			path = View;
@@ -559,6 +562,7 @@
 				7C5774282BB0A46E0059193B /* MenuHeaderView.swift in Sources */,
 				7C7322982BA337E500892F52 /* FeedView.swift in Sources */,
 				7C73229D2BA33DD600892F52 /* HeaderView.swift in Sources */,
+				7C3801872BBB264D00200F46 /* AddPasswordView.swift in Sources */,
 				7C5774262BB0A44A0059193B /* ShortcutsView.swift in Sources */,
 				7C5773F32BA48E120059193B /* DividerView.swift in Sources */,
 				7C73227A2BA22BBD00892F52 /* ContentView.swift in Sources */,
