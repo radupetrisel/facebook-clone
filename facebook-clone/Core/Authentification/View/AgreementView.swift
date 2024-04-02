@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct AgreementView: View {
+    @State private var viewModel: RegistrationViewModel
+    
+    init(viewModel: RegistrationViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Agree to Facebook's terms and policies")
@@ -36,8 +42,10 @@ struct AgreementView: View {
             }
             .font(.caption)
             
-            NavigationLink {
-                Text("Finished")
+            Button {
+                Task {
+                    await viewModel.createUser()
+                }
             } label: {
                 RegistrationNavigationLinkLabel(title: "I agree")
             }
@@ -62,6 +70,6 @@ struct AgreementView: View {
 
 #Preview {
     NavigationStack {
-        AgreementView()
+        AgreementView(viewModel: RegistrationViewModel())
     }
 }

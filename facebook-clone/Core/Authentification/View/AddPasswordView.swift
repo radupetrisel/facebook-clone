@@ -30,7 +30,7 @@ struct AddPasswordView: View {
                 .textFieldStyle(.loginScreen)
             
             NavigationLink {
-                AgreementView()
+                AgreementView(viewModel: viewModel)
                     .navigationBarBackButtonHidden()
             } label: {
                 RegistrationNavigationLinkLabel()

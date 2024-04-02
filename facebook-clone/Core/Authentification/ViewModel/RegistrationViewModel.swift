@@ -20,6 +20,10 @@ final class RegistrationViewModel {
     var email: String = ""
     
     var password: String = ""
+    
+    func createUser() async {
+        await AuthService.shared.addUser(firstName: firstName, familyName: familyName, email: email.trimmingCharacters(in: .whitespacesAndNewlines), age: age, gender: gender.rawValue, password: password)
+    }
 }
 
 enum GenderChoice: String, CaseIterable {
