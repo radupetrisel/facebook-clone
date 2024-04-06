@@ -27,9 +27,13 @@ struct LoginView: View {
                         .textContentType(.password)
                         .textFieldStyle(.loginScreen)
                     
-                    Button("Login") { }
-                        .buttonStyle(.screenWidth(background: .blue))
-                        .foregroundStyle(.white)
+                    Button("Login") {
+                        Task {
+                            await viewModel.login()
+                        }
+                    }
+                    .buttonStyle(.screenWidth(background: .blue))
+                    .foregroundStyle(.white)
                     
                     Text("Forgot password?")
                         .semiboldHeadline()

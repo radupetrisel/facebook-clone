@@ -17,7 +17,7 @@ struct facebook_cloneApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            RootView()
         }
     }
 }

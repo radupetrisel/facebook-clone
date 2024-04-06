@@ -11,4 +11,8 @@ import Foundation
 final class LoginViewModel {
     var phoneNumberOrEmail: String = ""
     var password: String = ""
+    
+    func login() async {
+        await AuthService.shared.login(email: phoneNumberOrEmail, password: password)
+    }
 }

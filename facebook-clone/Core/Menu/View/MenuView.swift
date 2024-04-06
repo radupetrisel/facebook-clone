@@ -36,7 +36,9 @@ struct MenuView: View {
             .background(.systemGray6)
             .toolbar { toolbar }
             .alert("Log out of your account?", isPresented: $showLogoutAlert) {
-                Button("Logout") { }
+                Button("Logout") { 
+                    AuthService.shared.logout()
+                }
                 Button("Cancel", role: .cancel) { }
             }
         }

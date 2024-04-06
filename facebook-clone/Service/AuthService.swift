@@ -11,8 +11,6 @@ import Foundation
 
 @Observable
 final class AuthService {
-    private static let USERS = "users"
-    
     static let shared = AuthService()
     var session: FirebaseAuth.User?
     
@@ -32,8 +30,26 @@ final class AuthService {
         }
     }
     
+    @MainActor
+    func login(email: String, password: String) async {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            session = result.user
+            try await UserService.shared.fetchCurrentUser()
+        } catch {
+            print("Failed to login: \(error.localizedDescription)")
+        }
+    }
+    
+    @MainActor
+    func logout() {
+        try? Auth.auth().signOut()
+        session = nil
+        UserService.shared.reset()
+    }
+    
     private func uploadUser(user: User) async throws {
         guard let userData = try? Firestore.Encoder().encode(user) else { return }
-        try await Firestore.firestore().collection(Self.USERS).document(user.id).setData(userData)
+        try await Firestore.firestore().collection(Firestore.USERS).document(user.id).setData(userData)
     }
 }
