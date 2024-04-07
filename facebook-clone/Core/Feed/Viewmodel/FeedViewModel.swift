@@ -29,9 +29,7 @@ final class FeedViewModel {
         .init(id: "1", userId: "0", title: "You'll never walk alone", likes: 3, shares: 4, url: "stadium", isVideo: false),
     ]
     
-    var currentUser: User {
-        users.first(where: { $0.isCurrentUser }) ?? users[0]
-    }
+    var currentUser: User { UserService.shared.currentUser ?? users[0] }
     
     private(set) var currentUserPosts: [Post] = []
     
@@ -49,10 +47,12 @@ final class FeedViewModel {
         return uiImage
     }
     
-    func updateImage(_ image: UIImage, imagePath: String) async throws {
-        guard let imageData = image.jpegData(compressionQuality: 0.25) else { return }
-        guard let imageURL = await ImageUploader.uploadImage(withData: imageData) else { return }
+    func updateImage(_ image: UIImage, imagePath: String) async throws -> String {
+        guard let imageData = image.jpegData(compressionQuality: 0.25) else { return "" }
+        guard let imageURL = await ImageUploader.uploadImage(withData: imageData) else { return "" }
         try await UserService.shared.updateImage(withImageURL: imageURL, imagePath: imagePath)
+        
+        return imageURL
     }
     
     private func setupFriends() {

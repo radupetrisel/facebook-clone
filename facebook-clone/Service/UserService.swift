@@ -14,6 +14,10 @@ final class UserService {
     
     var currentUser: User?
     
+    init() {
+        Task { try await fetchCurrentUser() }
+    }
+    
     @MainActor
     func fetchCurrentUser() async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -29,7 +33,5 @@ final class UserService {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         try await Firestore.firestore().collection(Firestore.USERS).document(uid).updateData([imagePath : imageURL])
-        
-        currentUser?.profileImageName = imageURL
     }
 }

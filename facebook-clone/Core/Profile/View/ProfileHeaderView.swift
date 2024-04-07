@@ -5,6 +5,7 @@
 //  Created by Radu Petrisel on 17.03.2024.
 //
 
+import Kingfisher
 import PhotosUI
 import SwiftUI
 
@@ -12,11 +13,9 @@ import SwiftUI
 struct ProfileHeaderView: View {
     @State private var showProfileImagePicker = false
     @State private var selectedProfileImage: PhotosPickerItem?
-    @State private var profileImage: Image = .init(.noProfile)
     
     @State private var showCoverImagePicker = false
     @State private var selectedCoverImage: PhotosPickerItem?
-    @State private var coverImage: Image = .init(.coverPicture)
     
     let viewModel: FeedViewModel
     let width: CGFloat
@@ -29,10 +28,18 @@ struct ProfileHeaderView: View {
             Button {
                 showCoverImagePicker.toggle()
             } label: {
-                coverImage
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: width, height: 250)
+                AsyncImage(url: URL(string: user.coverImageName ?? "")) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width, height: 250)
+                        .clipped()
+                } placeholder: {
+                    Image(.noProfile)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width, height: 250)
+                }
             }
             
             Color.white
@@ -43,16 +50,30 @@ struct ProfileHeaderView: View {
                 Button {
                     showProfileImagePicker.toggle()
                 } label: {
-                    profileImage
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 120)
-                        .clipShape(.circle)
-                        .overlay {
-                            Circle()
-                                .stroke(Color(.systemGray6), lineWidth: 3)
-                        }
-                        .padding(.top, 170)
+                    AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .clipShape(.circle)
+                            .overlay {
+                                Circle()
+                                    .stroke(Color(.systemGray6), lineWidth: 3)
+                            }
+                            .padding(.top, 170)
+                        
+                    } placeholder: {
+                        Image(.noProfile)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .clipShape(.circle)
+                            .overlay {
+                                Circle()
+                                    .stroke(Color(.systemGray6), lineWidth: 3)
+                            }
+                            .padding(.top, 170)
+                    }
                 }
                 
                 Text(user.fullName)
@@ -92,16 +113,18 @@ struct ProfileHeaderView: View {
         .onChange(of: selectedProfileImage) {
             Task { @MainActor in
                 if let profileImage = try? await viewModel.loadImage(fromItem: selectedProfileImage) {
-                    self.profileImage = Image(uiImage: profileImage)
-                    try? await viewModel.updateImage(profileImage, imagePath: "profileImageName")
+                    if let url = try? await viewModel.updateImage(profileImage, imagePath: "profileImageName") {
+                        UserService.shared.currentUser?.profileImageName = url
+                    }
                 }
             }
         }
         .onChange(of: selectedCoverImage) {
             Task { @MainActor in
                 if let coverImage = try? await viewModel.loadImage(fromItem: selectedCoverImage) {
-                    self.coverImage = Image(uiImage: coverImage)
-                    try? await viewModel.updateImage(coverImage, imagePath: "coverImageName")
+                    if let url = try? await viewModel.updateImage(coverImage, imagePath: "coverImageName") {
+                        UserService.shared.currentUser?.coverImageName = url
+                    }
                 }
             }
         }
