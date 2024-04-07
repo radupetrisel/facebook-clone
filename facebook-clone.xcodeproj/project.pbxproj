@@ -34,6 +34,7 @@
 		7C3801952BBC76B800200F46 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3801942BBC76B800200F46 /* AuthService.swift */; };
 		7C51A5C42BC1D86D00D93A32 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51A5C32BC1D86D00D93A32 /* UserService.swift */; };
 		7C51A5C62BC1D8FB00D93A32 /* Firestore+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51A5C52BC1D8FB00D93A32 /* Firestore+Extensions.swift */; };
+		7C51A5C82BC2823C00D93A32 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51A5C72BC2823C00D93A32 /* ImageUploader.swift */; };
 		7C5773F32BA48E120059193B /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F22BA48E120059193B /* DividerView.swift */; };
 		7C5773F52BA48E490059193B /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F42BA48E490059193B /* MyStoryCardView.swift */; };
 		7C5773F72BA494430059193B /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5773F62BA494430059193B /* StoryFeedView.swift */; };
@@ -98,6 +99,7 @@
 		7C3801942BBC76B800200F46 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7C51A5C32BC1D86D00D93A32 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7C51A5C52BC1D8FB00D93A32 /* Firestore+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extensions.swift"; sourceTree = "<group>"; };
+		7C51A5C72BC2823C00D93A32 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		7C5773F22BA48E120059193B /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		7C5773F42BA48E490059193B /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		7C5773F62BA494430059193B /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				7C3801942BBC76B800200F46 /* AuthService.swift */,
 				7C51A5C32BC1D86D00D93A32 /* UserService.swift */,
 				7C51A5C52BC1D8FB00D93A32 /* Firestore+Extensions.swift */,
+				7C51A5C72BC2823C00D93A32 /* ImageUploader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				7C5774262BB0A44A0059193B /* ShortcutsView.swift in Sources */,
 				7C5773F32BA48E120059193B /* DividerView.swift in Sources */,
 				7C38015D2BB3156D00200F46 /* FriendsViewModel.swift in Sources */,
+				7C51A5C82BC2823C00D93A32 /* ImageUploader.swift in Sources */,
 				7C38016D2BB88F7A00200F46 /* LoginScreenTextFieldStyle.swift in Sources */,
 				7C3801752BB8953B00200F46 /* RegistrationViewModel.swift in Sources */,
 				7C5774072BA776FD0059193B /* ShapeStyle+Extensions.swift in Sources */,

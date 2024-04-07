@@ -92,14 +92,16 @@ struct ProfileHeaderView: View {
         .onChange(of: selectedProfileImage) {
             Task { @MainActor in
                 if let profileImage = try? await viewModel.loadImage(fromItem: selectedProfileImage) {
-                    self.profileImage = profileImage
+                    self.profileImage = Image(uiImage: profileImage)
+                    try? await viewModel.updateImage(profileImage, imagePath: "profileImageName")
                 }
             }
         }
         .onChange(of: selectedCoverImage) {
             Task { @MainActor in
                 if let coverImage = try? await viewModel.loadImage(fromItem: selectedCoverImage) {
-                    self.coverImage = coverImage
+                    self.coverImage = Image(uiImage: coverImage)
+                    try? await viewModel.updateImage(coverImage, imagePath: "coverImageName")
                 }
             }
         }

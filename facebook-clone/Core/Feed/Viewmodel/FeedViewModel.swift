@@ -41,6 +41,20 @@ final class FeedViewModel {
         setupCurrentUserPostsIndices()
     }
     
+    func loadImage(fromItem item: PhotosPickerItem?) async throws -> UIImage {
+        guard let item else { return UIImage(resource: .noProfile) }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { return UIImage(resource: .noProfile) }
+        guard let uiImage = UIImage(data: data) else { return UIImage(resource: .noProfile) }
+        
+        return uiImage
+    }
+    
+    func updateImage(_ image: UIImage, imagePath: String) async throws {
+        guard let imageData = image.jpegData(compressionQuality: 0.25) else { return }
+        guard let imageURL = await ImageUploader.uploadImage(withData: imageData) else { return }
+        try await UserService.shared.updateImage(withImageURL: imageURL, imagePath: imagePath)
+    }
+    
     private func setupFriends() {
         friends = users.filter { currentUser.friendsIds.contains($0.id) }
     }
@@ -53,13 +67,5 @@ final class FeedViewModel {
     
     private func setupCurrentUserPostsIndices() {
         currentUserPosts = posts.filter { $0.userId == currentUser.id }
-    }
-    
-    func loadImage(fromItem item: PhotosPickerItem?) async throws -> Image {
-        guard let item else { return Image(.noProfile) }
-        guard let data = try? await item.loadTransferable(type: Data.self) else { return Image(.noProfile) }
-        guard let uiImage = UIImage(data: data) else { return Image(.noProfile) }
-        
-        return Image(uiImage: uiImage)
     }
 }
