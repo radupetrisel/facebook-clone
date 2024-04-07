@@ -25,6 +25,7 @@ final class AuthService {
             
             let user = User(id: result.user.uid, firstName: firstName, familyName: familyName, email: email, age: age, gender: gender, friendsIds: [], friendRequestsIds: [], isCurrentUser: true)
             try await uploadUser(user: user)
+            try await UserService.shared.fetchCurrentUser()
         } catch {
             print("Error adding user to Firebase: \(error.localizedDescription)")
         }

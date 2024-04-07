@@ -9,18 +9,12 @@ import SwiftUI
 
 struct ProfileFriendsView: View {
     private let gridItems: [GridItem] = [
-        .init(.flexible(), spacing: 1),
-        .init(.flexible(), spacing: 1),
-        .init(.flexible(), spacing: 1),
+        .init(.flexible(), spacing: 20),
+        .init(.flexible(), spacing: 20),
+        .init(.flexible(), spacing: 20),
     ]
     
-    private let width: CGFloat
-    
     @State private var viewModel = FeedViewModel()
-    
-    init(width: CGFloat) {
-        self.width = width
-    }
     
     var body: some View {
         VStack {
@@ -44,11 +38,19 @@ struct ProfileFriendsView: View {
             LazyVGrid(columns: gridItems) {
                 ForEach(viewModel.friends) { user in
                     VStack {
-                        Image(user.profileImageName ?? "")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: width / 3 - 20, height: width / 3 - 20)
-                            .clipShape(.rect(cornerRadius: 8))
+                        AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(.rect(cornerRadius: 8))
+                            
+                        } placeholder: {
+                            Image(.noProfile)
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(.rect(cornerRadius: 8))
+
+                        }
                         
                         Text(user.fullName)
                             .lineLimit(1)
@@ -60,7 +62,9 @@ struct ProfileFriendsView: View {
             Text("See all friends")
                 .semiboldHeadline()
                 .foregroundStyle(.darkGray)
-                .frame(width: width - 30, height: 44)
+                .frame(height: 44)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal)
                 .background(.systemGray5)
                 .clipShape(.rect(cornerRadius: 8))
                 .padding(.vertical)
@@ -72,6 +76,6 @@ struct ProfileFriendsView: View {
 
 #Preview {
     GeometryReader { proxy in
-        ProfileFriendsView(width: proxy.size.width)
+        ProfileFriendsView()
     }
 }

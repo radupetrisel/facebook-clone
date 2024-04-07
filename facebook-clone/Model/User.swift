@@ -29,4 +29,8 @@ struct User: Identifiable, Hashable, Codable {
     var fullName: String {
         "\(firstName) \(familyName)"
     }
+    
+    func isFriends(with other: User) -> Bool {
+        friendsIds.contains(other.id)
+    }
 }

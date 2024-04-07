@@ -20,7 +20,7 @@ struct ProfileView: View {
                     
                     ProfileOptionsView()
                     
-                    ProfileFriendsView(width: proxy.size.width)
+                    ProfileFriendsView()
                     
                     DividerView()
                     
@@ -30,7 +30,7 @@ struct ProfileView: View {
                 }
             }
             .scrollIndicators(.hidden)
-            .navigationTitle("Omar Thamri")
+            .navigationTitle(viewModel.currentUser.fullName)
             .toolbar { toolbar }
         }
     }

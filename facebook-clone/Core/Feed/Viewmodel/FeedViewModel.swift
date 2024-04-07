@@ -22,19 +22,17 @@ final class FeedViewModel {
         .init(id: "7", firstName: "Nancy", familyName: "Wheeler", email: "nancy.wheeler@gmail.com", profileImageName: "profilePic4", coverImageName: "Story4", age: 27, gender: "female", friendsIds: ["0"], friendRequestsIds: [], isCurrentUser: false),
     ]
     
-    private(set) var friends: [User] = []
-    
     private(set) var posts: [Post] = [
         .init(id: "0", userId: "3", title: "Best team ever", likes: 2, shares: 2, url: "office", isVideo: false),
         .init(id: "1", userId: "0", title: "You'll never walk alone", likes: 3, shares: 4, url: "stadium", isVideo: false),
     ]
     
-    var currentUser: User { UserService.shared.currentUser ?? users[0] }
-    
     private(set) var currentUserPosts: [Post] = []
     
+    var currentUser: User { UserService.shared.currentUser ?? users[0] }
+    var friends: [User] { UserService.shared.friends }
+    
     init() {
-        setupFriends()
         setupPosts()
         setupCurrentUserPostsIndices()
     }
@@ -53,10 +51,6 @@ final class FeedViewModel {
         try await UserService.shared.updateImage(withImageURL: imageURL, imagePath: imagePath)
         
         return imageURL
-    }
-    
-    private func setupFriends() {
-        friends = users.filter { currentUser.friendsIds.contains($0.id) }
     }
     
     private func setupPosts() {
