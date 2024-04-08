@@ -14,6 +14,7 @@ final class UserService {
     
     var currentUser: User?
     var friends: [User] = []
+    var friendRequests: [User] = []
     
     init() {
         Task { try await fetchCurrentUser() }
@@ -25,11 +26,13 @@ final class UserService {
         let snapshot = try await Firestore.firestore().collection(Firestore.USERS).document(uid).getDocument()
         currentUser = try snapshot.data(as: User.self)
         try await fetchFriends()
+        try await fetchFriendRequests()
     }
     
     func reset() {
         currentUser = nil
         friends = []
+        friendRequests = []
     }
     
     func updateImage(withImageURL imageURL: String, imagePath: String) async throws {
@@ -46,5 +49,15 @@ final class UserService {
         friends = snapshot.documents
             .compactMap { try? $0.data(as: User.self) }
             .filter { currentUser.isFriends(with: $0) }
+    }
+    
+    func fetchFriendRequests() async throws {
+        let snapshot = try await Firestore.firestore().collection(Firestore.USERS).getDocuments()
+        
+        guard let currentUser else { return }
+        
+        friendRequests = snapshot.documents
+            .compactMap { try? $0.data(as: User.self) }
+            .filter { currentUser.hasFriendRequest(from: $0) }
     }
 }

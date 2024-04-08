@@ -7,20 +7,27 @@
 
 import SwiftUI
 
-
 struct FriendCell: View {
     let user: User
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(user.profileImageName ?? "")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 70, height: 70)
-                .clipShape(.circle)
+            AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 70, height: 70)
+                    .clipShape(.circle)
+            } placeholder: {
+                Image(.noProfile)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 70, height: 70)
+                    .clipShape(.circle)
+            }
             
             VStack(alignment: .leading) {
-                Text("\(user.firstName) \(user.familyName)")
+                Text(user.fullName)
                     .semiboldHeadline()
                 
                 HStack {

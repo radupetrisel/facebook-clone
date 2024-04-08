@@ -17,15 +17,5 @@ final class FriendsViewModel {
         .init(id: "4", firstName: "Natasha", familyName: "Romanoff", email: "natasha.romanoff@gmail.com", profileImageName: "romanoff", age: 38, gender: "female", friendsIds: [], friendRequestsIds: [], isCurrentUser: false),
     ]
     
-    private(set) var friendsRequests: [User] = []
-    
-    init() {
-        setupFriendsRequests()
-    }
-    
-    private func setupFriendsRequests() {
-        if let currentUser = users.first(where: { $0.isCurrentUser} ) {
-            friendsRequests = users.filter { currentUser.friendRequestsIds.contains($0.id) }
-        }
-    }
+    var friendsRequests: [User] { UserService.shared.friendRequests }
 }

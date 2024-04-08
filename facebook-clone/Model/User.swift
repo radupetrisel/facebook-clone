@@ -33,4 +33,8 @@ struct User: Identifiable, Hashable, Codable {
     func isFriends(with other: User) -> Bool {
         friendsIds.contains(other.id)
     }
+    
+    func hasFriendRequest(from other: User) -> Bool {
+        friendRequestsIds.contains(other.id)
+    }
 }
