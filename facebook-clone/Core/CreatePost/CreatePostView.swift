@@ -110,28 +110,3 @@ struct CreatePostView: View {
 #Preview {
     CreatePostView()
 }
-
-struct ChoiceView: View {
-    let image: String
-    let text: String
-    
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: image)
-                .frame(width: 14, height: 12)
-            
-            Text(text)
-                .font(.subheadline)
-                .fontWeight(.bold)
-            
-            Image(systemName: "arrowtriangle.down")
-                .symbolVariant(.fill)
-                .font(.caption2)
-        }
-        .foregroundStyle(.blue)
-        .padding(.horizontal)
-        .padding(.vertical, 5)
-        .background(.systemGray6)
-        .clipShape(.rect(cornerRadius: 8))
-    }
-}

@@ -73,6 +73,7 @@
 		7C82C80F2BC1D34F00D6B254 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C82C80E2BC1D34F00D6B254 /* GoogleService-Info.plist */; };
 		7C82C8132BC1D54900D6B254 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82C8122BC1D54900D6B254 /* RootViewModel.swift */; };
 		7C82C8152BC1D5A200D6B254 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82C8142BC1D5A200D6B254 /* RootView.swift */; };
+		7C9A8AE22BC460F900B3CB62 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A8AE12BC460F900B3CB62 /* ChoiceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		7C82C80E2BC1D34F00D6B254 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C82C8122BC1D54900D6B254 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		7C82C8142BC1D5A200D6B254 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7C9A8AE12BC460F900B3CB62 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				7C5774122BAA0CB50059193B /* CreatePostView.swift */,
+				7C9A8AE12BC460F900B3CB62 /* ChoiceView.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				7C51A5C42BC1D86D00D93A32 /* UserService.swift in Sources */,
 				7C82C8152BC1D5A200D6B254 /* RootView.swift in Sources */,
 				7C38016F2BB8902900200F46 /* AnyButtonStyle.swift in Sources */,
+				7C9A8AE22BC460F900B3CB62 /* ChoiceView.swift in Sources */,
 				7C5774092BA8B6A40059193B /* ProfileFriendsView.swift in Sources */,
 				7C73229B2BA33B3400892F52 /* ProfileView.swift in Sources */,
 				7C5774182BAB3BB20059193B /* FriendCell.swift in Sources */,
