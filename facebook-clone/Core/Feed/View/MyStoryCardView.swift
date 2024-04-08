@@ -16,11 +16,20 @@ struct MyStoryCardView: View {
                 .foregroundStyle(Color(.systemGray6))
                 .frame(width: 100, height: 170)
             
-            Image(user.profileImageName ?? "")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 100, height: 110)
-                .clipShape(UnevenRoundedRectangle(topLeadingRadius: 15, topTrailingRadius: 15))
+            AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 110)
+                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 15, topTrailingRadius: 15))
+                
+            } placeholder: {
+                Image(.noProfile)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 110)
+                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 15, topTrailingRadius: 15))
+            }
             
             VStack(spacing: 5) {
                 Spacer()

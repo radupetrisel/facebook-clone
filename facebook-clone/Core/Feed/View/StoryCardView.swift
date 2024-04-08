@@ -11,34 +11,46 @@ struct StoryCardView: View {
     let user: User
     
     var body: some View {
-        Image(user.coverImageName ?? "")
-            .resizable()
-            .scaledToFill()
-            .frame(width: 100, height: 170)
-            .clipShape(.rect(cornerRadius: 15))
-            .overlay {
-                VStack(alignment: .leading) {
-                    Image(user.profileImageName ?? "")
+        AsyncImage(url: URL(string: user.coverImageName ?? "")) { image in
+            image
+                .resizable()
+        } placeholder: {
+            Image(.noProfile)
+                .resizable()
+        }
+        .scaledToFill()
+        .frame(width: 100, height: 170)
+        .clipShape(.rect(cornerRadius: 15))
+        .overlay {
+            VStack(alignment: .leading) {
+                AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                    image
                         .resizable()
-                        .scaledToFill()
-                        .frame(width: 35, height: 35)
-                        .clipShape(.circle)
-                        .overlay {
-                            Circle()
-                                .stroke(.blue, lineWidth: 3)
-                        }
-                    
-                    Spacer()
-                    
-                    Text("\(user.firstName) \(user.familyName)")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 12, weight: .semibold))
-                    
-                    HStack { Spacer() }
+                } placeholder: {
+                    Image(.noProfile)
+                        .resizable()
+                }
+                .scaledToFill()
+                .frame(width: 35, height: 35)
+                .clipShape(.circle)
+                .overlay {
+                    Circle()
+                        .stroke(.blue, lineWidth: 3)
                 }
                 .padding(.leading, 8)
-                .padding(.vertical, 8)
+                
+                Spacer()
+                
+                Text(user.fullName)
+                    .foregroundStyle(.white)
+                    .font(.system(size: 12, weight: .semibold))
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal, 3)
             }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
+        }
     }
 }
 
