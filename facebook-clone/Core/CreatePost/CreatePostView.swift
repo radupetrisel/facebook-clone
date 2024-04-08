@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct CreatePostView: View {
     @State private var text: String = ""
+    
+    @State private var isPhotosPickerShown = false
+    @State private var selectedPhotoPickerItem: PhotosPickerItem?
     
     let viewModel: FeedViewModel
     
@@ -54,9 +58,11 @@ struct CreatePostView: View {
                 HStack {
                     Spacer()
                     
-                    Button("Add photo", systemImage: "photo.fill.on.rectangle.fill") { }
-                        .labelStyle(.iconOnly)
-                        .foregroundStyle(.green)
+                    Button("Add photo", systemImage: "photo.fill.on.rectangle.fill") {
+                        isPhotosPickerShown.toggle()
+                    }
+                    .labelStyle(.iconOnly)
+                    .foregroundStyle(.green)
                     
                     Spacer()
                     
@@ -92,6 +98,14 @@ struct CreatePostView: View {
             }
             .toolbar { toolbar }
         }
+        .onChange(of: selectedPhotoPickerItem) {
+            Task {
+                if let image = try? await viewModel.loadImage(fromItem: selectedPhotoPickerItem) {
+                    
+                }
+            }
+        }
+        .photosPicker(isPresented: $isPhotosPickerShown, selection: $selectedPhotoPickerItem)
     }
     
     @ToolbarContentBuilder
