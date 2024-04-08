@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import PhotosUI
-import SwiftUI
 
 @Observable
 final class FeedViewModel {
@@ -35,13 +33,6 @@ final class FeedViewModel {
     init() {
         setupPosts()
         setupCurrentUserPostsIndices()
-    }
-    
-    func loadImageData(fromItem item: PhotosPickerItem?) async throws -> Data {
-        guard let item else { return Data() }
-        guard let data = try? await item.loadTransferable(type: Data.self) else { return Data() }
-        
-        return data
     }
     
     func updateImage(_ imageData: Data, imagePath: String) async throws -> String {
