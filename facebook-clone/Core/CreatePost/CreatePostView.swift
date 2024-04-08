@@ -10,20 +10,27 @@ import SwiftUI
 struct CreatePostView: View {
     @State private var text: String = ""
     
+    let viewModel: FeedViewModel
+    
+    var user: User { viewModel.currentUser }
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
                 Divider()
                 
                 HStack(alignment: .top) {
-                    Image("profilePic")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 45, height: 45)
-                        .clipShape(.circle)
+                    AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                        image.resizable()
+                    } placeholder: {
+                        Image(.noProfile).resizable()
+                    }
+                    .scaledToFill()
+                    .frame(width: 45, height: 45)
+                    .clipShape(.circle)
                     
                     VStack(alignment: .leading) {
-                        Text("Omar Thamri")
+                        Text(user.fullName)
                         
                         HStack {
                             ChoiceView(image: "person.2.fill", text: "Friends")
@@ -108,5 +115,5 @@ struct CreatePostView: View {
 }
 
 #Preview {
-    CreatePostView()
+    CreatePostView(viewModel: FeedViewModel())
 }
