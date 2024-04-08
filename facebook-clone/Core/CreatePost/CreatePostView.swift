@@ -100,7 +100,7 @@ struct CreatePostView: View {
         }
         .onChange(of: selectedPhotoPickerItem) {
             Task {
-                if let image = try? await viewModel.loadImage(fromItem: selectedPhotoPickerItem) {
+                if let imageData = try? await viewModel.loadImageData(fromItem: selectedPhotoPickerItem) {
                     
                 }
             }

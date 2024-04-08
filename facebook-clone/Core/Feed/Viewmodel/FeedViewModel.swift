@@ -37,16 +37,14 @@ final class FeedViewModel {
         setupCurrentUserPostsIndices()
     }
     
-    func loadImage(fromItem item: PhotosPickerItem?) async throws -> UIImage {
-        guard let item else { return UIImage(resource: .noProfile) }
-        guard let data = try? await item.loadTransferable(type: Data.self) else { return UIImage(resource: .noProfile) }
-        guard let uiImage = UIImage(data: data) else { return UIImage(resource: .noProfile) }
+    func loadImageData(fromItem item: PhotosPickerItem?) async throws -> Data {
+        guard let item else { return Data() }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { return Data() }
         
-        return uiImage
+        return data
     }
     
-    func updateImage(_ image: UIImage, imagePath: String) async throws -> String {
-        guard let imageData = image.jpegData(compressionQuality: 0.25) else { return "" }
+    func updateImage(_ imageData: Data, imagePath: String) async throws -> String {
         guard let imageURL = await ImageUploader.uploadImage(withData: imageData) else { return "" }
         try await UserService.shared.updateImage(withImageURL: imageURL, imagePath: imagePath)
         

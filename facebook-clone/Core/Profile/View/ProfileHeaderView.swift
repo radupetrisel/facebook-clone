@@ -111,8 +111,8 @@ struct ProfileHeaderView: View {
         }
         .onChange(of: selectedProfileImage) {
             Task { @MainActor in
-                if let profileImage = try? await viewModel.loadImage(fromItem: selectedProfileImage) {
-                    if let url = try? await viewModel.updateImage(profileImage, imagePath: "profileImageName") {
+                if let profileImageData = try? await viewModel.loadImageData(fromItem: selectedProfileImage) {
+                    if let url = try? await viewModel.updateImage(profileImageData, imagePath: "profileImageName") {
                         UserService.shared.currentUser?.profileImageName = url
                     }
                 }
@@ -120,8 +120,8 @@ struct ProfileHeaderView: View {
         }
         .onChange(of: selectedCoverImage) {
             Task { @MainActor in
-                if let coverImage = try? await viewModel.loadImage(fromItem: selectedCoverImage) {
-                    if let url = try? await viewModel.updateImage(coverImage, imagePath: "coverImageName") {
+                if let coverImageData = try? await viewModel.loadImageData(fromItem: selectedCoverImage) {
+                    if let url = try? await viewModel.updateImage(coverImageData, imagePath: "coverImageName") {
                         UserService.shared.currentUser?.coverImageName = url
                     }
                 }
