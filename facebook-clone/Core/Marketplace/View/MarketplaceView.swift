@@ -17,34 +17,34 @@ struct MarketplaceView: View {
     
     var body: some View {
         NavigationStack {
-            GeometryReader { proxy in
-                ScrollView {
-                    HStack {
-                        MarketplaceButton(title: "Sell", imageName: "square.and.pencil", width: proxy.size.width)
-                        MarketplaceButton(title: "Categories", imageName: "list.bullet", width: proxy.size.width)
+            ScrollView {
+                HStack {
+                    MarketplaceButton(title: "Sell", imageName: "square.and.pencil")
+                    MarketplaceButton(title: "Categories", imageName: "list.bullet")
+                }
+                .padding()
+                
+                Divider()
+                
+                VStack(alignment: .leading) {
+                    HStack(spacing: 2) {
+                        Text("Today's picks")
+                            .semiboldHeadline()
+                        
+                        Spacer()
+                        
+                        Image(.pin)
+                            .resizable()
+                            .frame(width: 20, height: 16)
+                        
+                        Text("London")
+                            .font(.subheadline)
+                            .foregroundStyle(.blue)
                     }
                     .padding()
-                    
-                    Divider()
-                    
-                    VStack(alignment: .leading) {
-                        HStack(spacing: 2) {
-                            Text("Today's picks")
-                                .semiboldHeadline()
-                            
-                            Spacer()
-                            
-                            Image(.pin)
-                                .resizable()
-                                .frame(width: 20, height: 16)
-                            
-                            Text("London")
-                                .font(.subheadline)
-                                .foregroundStyle(.blue)
-                        }
-                        .padding()
-                    }
-                    
+                }
+                
+                GeometryReader { proxy in
                     LazyVGrid(columns: gridItems) {
                         ForEach(viewModel.items) { item in
                             VStack {
@@ -61,9 +61,10 @@ struct MarketplaceView: View {
                         }
                     }
                 }
-                .scrollIndicators(.hidden)
-                .toolbar { toolbar }
             }
+            .scrollIndicators(.hidden)
+            .toolbar { toolbar }
+            
         }
     }
     
