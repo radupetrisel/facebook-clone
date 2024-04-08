@@ -18,11 +18,19 @@ struct HeaderView: View {
                 ProfileView()
                     .navigationBarBackButtonHidden()
             } label: {
-                Image(viewModel.currentUser.profileImageName ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(.circle)
+                AsyncImage(url: URL(string: viewModel.currentUser.profileImageName ?? "")) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(.circle)
+                } placeholder: {
+                    Image(.noProfile)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(.circle)
+                }
             }
             
             Button {
