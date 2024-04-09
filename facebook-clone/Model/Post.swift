@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Post: Identifiable, Hashable, Codable {
     let id: String
@@ -18,7 +19,7 @@ struct Post: Identifiable, Hashable, Codable {
     
     var isVideo: Bool
     
-//    let timeStamp: Timestamp
+    let timeStamp: Timestamp
     
     var user: User?
 }

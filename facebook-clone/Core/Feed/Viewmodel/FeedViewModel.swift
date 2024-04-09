@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 @Observable
 final class FeedViewModel {
@@ -21,8 +22,8 @@ final class FeedViewModel {
     ]
     
     private(set) var posts: [Post] = [
-        .init(id: "0", userId: "3", title: "Best team ever", likes: 2, shares: 2, url: "office", isVideo: false),
-        .init(id: "1", userId: "0", title: "You'll never walk alone", likes: 3, shares: 4, url: "stadium", isVideo: false),
+        .init(id: "0", userId: "3", title: "Best team ever", likes: 2, shares: 2, url: "office", isVideo: false, timeStamp: Timestamp()),
+        .init(id: "1", userId: "0", title: "You'll never walk alone", likes: 3, shares: 4, url: "stadium", isVideo: false, timeStamp: Timestamp()),
     ]
     
     private(set) var currentUserPosts: [Post] = []
@@ -40,6 +41,10 @@ final class FeedViewModel {
         try await UserService.shared.updateImage(withImageURL: imageURL, imagePath: imagePath)
         
         return imageURL
+    }
+    
+    func uploadPost(_ title: String, imageData: Data?) async throws {
+        try await PostService.uploadPost(title, imageData: imageData)
     }
     
     private func setupPosts() {

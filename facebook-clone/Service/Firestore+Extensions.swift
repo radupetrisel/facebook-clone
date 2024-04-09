@@ -10,4 +10,5 @@ import Firebase
 
 extension Firestore {
     static let USERS = "users"
+    static let POSTS = "posts"
 }

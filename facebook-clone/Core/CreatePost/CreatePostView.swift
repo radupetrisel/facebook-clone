@@ -9,10 +9,13 @@ import SwiftUI
 import PhotosUI
 
 struct CreatePostView: View {
+    @Environment(\.dismiss) var dismiss
+    
     @State private var text: String = ""
     
     @State private var isPhotosPickerShown = false
     @State private var selectedPhotoPickerItem: PhotosPickerItem?
+    @State private var selectedImageData: Data?
     
     let viewModel: FeedViewModel
     
@@ -50,6 +53,15 @@ struct CreatePostView: View {
                 
                 TextField("What's on your mind?", text: $text, axis: .vertical)
                     .padding(.horizontal)
+                
+                if let selectedImageData, let uiImage = UIImage(data: selectedImageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                        .clipped()
+                        .padding(.top)
+                }
                 
                 Spacer()
                 
@@ -101,7 +113,7 @@ struct CreatePostView: View {
         .onChange(of: selectedPhotoPickerItem) {
             Task {
                 if let imageData = try? await selectedPhotoPickerItem?.loadTransferable(type: Data.self) {
-                    
+                    selectedImageData = imageData
                 }
             }
         }
@@ -118,7 +130,12 @@ struct CreatePostView: View {
         
         ToolbarItem(placement: .topBarTrailing) {
             Button("Post") {
-                
+                Task {
+                    try await viewModel.uploadPost(text, imageData: selectedImageData)
+                    text = ""
+                    selectedImageData = nil
+                    dismiss()
+                }
             }
             .font(.subheadline)
             .fontWeight(.semibold)
