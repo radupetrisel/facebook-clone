@@ -18,7 +18,7 @@ struct HeaderView: View {
                 ProfileView()
                     .navigationBarBackButtonHidden()
             } label: {
-                AsyncImage(url: URL(string: viewModel.currentUser.profileImageName ?? "")) { image in
+                AsyncImage(url: viewModel.currentUser.profileImageURL) { image in
                     image
                         .resizable()
                         .scaledToFill()

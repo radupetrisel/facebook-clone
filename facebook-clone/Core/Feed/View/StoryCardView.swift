@@ -11,7 +11,7 @@ struct StoryCardView: View {
     let user: User
     
     var body: some View {
-        AsyncImage(url: URL(string: user.coverImageName ?? "")) { image in
+        AsyncImage(url: user.coverImageURL) { image in
             image
                 .resizable()
         } placeholder: {
@@ -23,7 +23,7 @@ struct StoryCardView: View {
         .clipShape(.rect(cornerRadius: 15))
         .overlay {
             VStack(alignment: .leading) {
-                AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                AsyncImage(url: user.profileImageURL) { image in
                     image
                         .resizable()
                 } placeholder: {
@@ -55,5 +55,5 @@ struct StoryCardView: View {
 }
 
 #Preview {
-    StoryCardView(user: FeedViewModel().currentUser)
+    StoryCardView(user: .preview)
 }

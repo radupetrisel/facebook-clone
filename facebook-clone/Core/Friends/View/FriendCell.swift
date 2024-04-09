@@ -12,7 +12,7 @@ struct FriendCell: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+            AsyncImage(url: user.profileImageURL) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -47,5 +47,5 @@ struct FriendCell: View {
 }
 
 #Preview {
-    FriendCell(user: FriendsViewModel().users[0])
+    FriendCell(user: User.preview)
 }

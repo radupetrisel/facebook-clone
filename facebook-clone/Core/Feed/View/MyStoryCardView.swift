@@ -16,7 +16,7 @@ struct MyStoryCardView: View {
                 .foregroundStyle(Color(.systemGray6))
                 .frame(width: 100, height: 170)
             
-            AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+            AsyncImage(url: user.profileImageURL) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -58,5 +58,5 @@ struct MyStoryCardView: View {
 }
 
 #Preview {
-    MyStoryCardView(user: FeedViewModel().currentUser)
+    MyStoryCardView(user: .preview)
 }

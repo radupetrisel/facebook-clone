@@ -15,8 +15,8 @@ struct User: Identifiable, Hashable, Codable {
     
     var email: String
     
-    var profileImageName: String?
-    var coverImageName: String?
+    var profileImageURL: URL?
+    var coverImageURL: URL?
     
     var age: Int
     let gender: String
@@ -37,4 +37,8 @@ struct User: Identifiable, Hashable, Codable {
     func hasFriendRequest(from other: User) -> Bool {
         friendRequestsIds.contains(other.id)
     }
+}
+
+extension User {
+    static let preview: User = User(id: "", firstName: "Test", familyName: "User", email: "test.user@test.com", age: 20, gender: GenderChoice.male.rawValue, friendsIds: [], friendRequestsIds: [], isCurrentUser: true)
 }

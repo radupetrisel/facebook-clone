@@ -27,7 +27,7 @@ struct ProfileHeaderView: View {
             Button {
                 showCoverImagePicker.toggle()
             } label: {
-                AsyncImage(url: URL(string: user.coverImageName ?? "")) { image in
+                AsyncImage(url: user.coverImageURL) { image in
                     image
                         .resizable()
                         .scaledToFill()
@@ -49,7 +49,7 @@ struct ProfileHeaderView: View {
                 Button {
                     showProfileImagePicker.toggle()
                 } label: {
-                    AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                    AsyncImage(url: user.profileImageURL) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -113,7 +113,7 @@ struct ProfileHeaderView: View {
             Task { @MainActor in
                 if let profileImageData = try? await selectedProfileImage?.loadTransferable(type: Data.self) {
                     if let url = try? await viewModel.updateImage(profileImageData, imagePath: "profileImageName") {
-                        UserService.shared.currentUser?.profileImageName = url
+                        UserService.shared.currentUser?.profileImageURL = url
                     }
                 }
             }
@@ -122,7 +122,7 @@ struct ProfileHeaderView: View {
             Task { @MainActor in
                 if let coverImageData = try? await selectedCoverImage?.loadTransferable(type: Data.self) {
                     if let url = try? await viewModel.updateImage(coverImageData, imagePath: "coverImageName") {
-                        UserService.shared.currentUser?.coverImageName = url
+                        UserService.shared.currentUser?.coverImageURL = url
                     }
                 }
             }

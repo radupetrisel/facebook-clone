@@ -35,7 +35,7 @@ final class UserService {
         friendRequests = []
     }
     
-    func updateImage(withImageURL imageURL: String, imagePath: String) async throws {
+    func updateImage(withImageURL imageURL: URL, imagePath: String) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         try await Firestore.firestore().collection(Firestore.USERS).document(uid).updateData([imagePath : imageURL])

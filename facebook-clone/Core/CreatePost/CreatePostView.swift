@@ -27,7 +27,7 @@ struct CreatePostView: View {
                 Divider()
                 
                 HStack(alignment: .top) {
-                    AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                    AsyncImage(url: user.profileImageURL) { image in
                         image.resizable()
                     } placeholder: {
                         Image(.noProfile).resizable()

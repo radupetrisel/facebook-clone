@@ -14,7 +14,7 @@ struct PostView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(post.user?.profileImageName ?? "")
+                Image(post.user?.profileImageURL?.absoluteString ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 40, height: 40)
@@ -52,12 +52,10 @@ struct PostView: View {
                 .padding(.horizontal)
             
             if post.isVideo {
-                if let url = URL(string: post.url) {
-                    VideoPlayer(player: AVPlayer(url: url))
+                VideoPlayer(player: AVPlayer(url: post.imageURL))
                         .frame(height: 400)
-                }
             } else {
-                Image(post.url)
+                Image(post.imageURL.absoluteString)
                     .resizable()
                     .scaledToFill()
             }

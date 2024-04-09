@@ -15,7 +15,7 @@ struct Post: Identifiable, Hashable, Codable {
     var title: String
     var likes: Int
     var shares: Int
-    var url: String
+    var imageURL: URL
     
     var isVideo: Bool
     

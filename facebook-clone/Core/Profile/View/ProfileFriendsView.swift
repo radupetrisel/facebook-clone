@@ -38,7 +38,7 @@ struct ProfileFriendsView: View {
             LazyVGrid(columns: gridItems) {
                 ForEach(viewModel.friends) { user in
                     VStack {
-                        AsyncImage(url: URL(string: user.profileImageName ?? "")) { image in
+                        AsyncImage(url: user.profileImageURL) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
