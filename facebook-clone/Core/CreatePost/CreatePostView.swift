@@ -5,6 +5,7 @@
 //  Created by Radu Petrisel on 19.03.2024.
 //
 
+import AVKit
 import SwiftUI
 import PhotosUI
 
@@ -15,7 +16,10 @@ struct CreatePostView: View {
     
     @State private var isPhotosPickerShown = false
     @State private var selectedPhotoPickerItem: PhotosPickerItem?
-    @State private var selectedImageData: Data?
+    @State private var selectedMediaData: Data?
+    @State private var isVideo = false
+    
+    @State private var videoURL: URL?
     
     let viewModel: FeedViewModel
     
@@ -53,15 +57,24 @@ struct CreatePostView: View {
                 
                 TextField("What's on your mind?", text: $text, axis: .vertical)
                     .padding(.horizontal)
-                
-                if let selectedImageData, let uiImage = UIImage(data: selectedImageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: 300)
-                        .clipped()
-                        .padding(.top)
-                }
+                if let selectedMediaData {
+                    if isVideo {
+                        if let videoURL {
+                            VideoPlayer(player: AVPlayer(url: videoURL))
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity, maxHeight: 300)
+                                .clipped()
+                                .padding(.top)
+                        }
+                    } else if let uiImage = UIImage(data: selectedMediaData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: .infinity, maxHeight: 300)
+                            .clipped()
+                            .padding(.top)
+                    }
+                        }
                 
                 Spacer()
                 
@@ -100,20 +113,21 @@ struct CreatePostView: View {
                     }
                     
                     Spacer()
-                    
-                    Button("More", systemImage: "ellipsis.circle.fill") { }
-                        .labelStyle(.iconOnly)
-                        .foregroundStyle(.darkGray)
-                    
-                    Spacer()
                 }
             }
             .toolbar { toolbar }
         }
         .onChange(of: selectedPhotoPickerItem) {
             Task {
-                if let imageData = try? await selectedPhotoPickerItem?.loadTransferable(type: Data.self) {
-                    selectedImageData = imageData
+                guard let selectedPhotoPickerItem else { return }
+                
+                if let mediaData = try? await selectedPhotoPickerItem.loadTransferable(type: Data.self) {
+                    selectedMediaData = mediaData
+                    
+                    if selectedPhotoPickerItem.isAudioVideo {
+                        videoURL = viewModel.saveDataToTemporaryDir(data: mediaData)
+                        isVideo = true
+                    }
                 }
             }
         }
@@ -131,9 +145,15 @@ struct CreatePostView: View {
         ToolbarItem(placement: .topBarTrailing) {
             Button("Post") {
                 Task {
-                    try await viewModel.uploadPost(text, imageData: selectedImageData)
+                    try await viewModel.uploadPost(text, mediaData: selectedMediaData, isVideo: isVideo)
                     text = ""
-                    selectedImageData = nil
+                    selectedMediaData = nil
+                    
+                    if let videoURL {
+                        viewModel.cleanUpTemporaryDir(url: videoURL)
+                        self.videoURL = nil
+                    }
+                    
                     dismiss()
                 }
             }

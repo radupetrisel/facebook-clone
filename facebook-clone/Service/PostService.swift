@@ -12,19 +12,23 @@ import Firebase
 final class PostService {
     static let shared = PostService()
     
-    func uploadPost(_ title: String, imageData: Data?) async throws {
+    func uploadPost(_ title: String, mediaData: Data?, isVideo: Bool) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        let imageURL: URL?
-        if let imageData {
-            imageURL = try await ImageUploader.uploadImage(withData: imageData)
+        let mediaURL: URL?
+        if let mediaData {
+            if isVideo {
+                mediaURL = try await VideoUploader.uploadVideo(mediaData)
+            } else {
+                mediaURL = try await ImageUploader.uploadImage(withData: mediaData)
+            }
         } else {
-            imageURL = nil
+            mediaURL = nil
         }
         
         let postRef = Firestore.firestore().collection(Firestore.POSTS).document()
         
-        let post = Post(id: postRef.documentID, userId: uid, title: title, likes: 0, shares: 0, imageURL: imageURL, isVideo: false, timeStamp: Timestamp())
+        let post = Post(id: postRef.documentID, userId: uid, title: title, likes: 0, shares: 0, imageURL: mediaURL, isVideo: isVideo, timeStamp: Timestamp())
         
         guard let encodedPost = try? Firestore.Encoder().encode(post) else { return }
         try await postRef.setData(encodedPost)

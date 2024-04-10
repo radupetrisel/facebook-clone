@@ -28,8 +28,8 @@ final class FeedViewModel {
         return imageURL
     }
     
-    func uploadPost(_ title: String, imageData: Data?) async throws {
-        try await PostService.shared.uploadPost(title, imageData: imageData)
+    func uploadPost(_ title: String, mediaData: Data?, isVideo: Bool) async throws {
+        try await PostService.shared.uploadPost(title, mediaData: mediaData, isVideo: isVideo)
     }
     
     func fetchPosts() {
@@ -49,6 +49,25 @@ final class FeedViewModel {
             } catch {
                 print("Could not fetch current user posts: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func saveDataToTemporaryDir(data: Data) -> URL {
+        do {
+            let fileURL = URL.temporaryDirectory.appending(path: "video.mp4")
+            try data.write(to: fileURL)
+            
+            return fileURL
+        } catch {
+            fatalError("Error saving data to temporary directory: \(error.localizedDescription)")
+        }
+    }
+    
+    func cleanUpTemporaryDir(url: URL) {
+        do {
+                try FileManager.default.removeItem(at: url)
+        } catch {
+            fatalError("Error cleaning temporary directory: \(error.localizedDescription)")
         }
     }
 }
