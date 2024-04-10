@@ -10,15 +10,15 @@ import Firebase
 
 @Observable
 final class FeedViewModel {
-    private(set) var posts: [Post] = []
-    private(set) var currentUserPosts: [Post] = []
-    
     var currentUser: User { UserService.shared.currentUser ?? .preview }
     var friends: [User] { UserService.shared.friends }
+
+    var posts: [Post] = []
+    var currentUserPosts: [Post] = []
     
     init() {
-        setupPosts()
-        setupCurrentUserPostsIndices()
+        fetchPosts()
+        fetchCurrentUserPosts()
     }
     
     func updateImage(_ imageData: Data, imagePath: String) async throws -> URL {
@@ -29,16 +29,26 @@ final class FeedViewModel {
     }
     
     func uploadPost(_ title: String, imageData: Data?) async throws {
-        try await PostService.uploadPost(title, imageData: imageData)
+        try await PostService.shared.uploadPost(title, imageData: imageData)
     }
     
-    private func setupPosts() {
-//        for index in posts.indices {
-//            posts[index].user = users.first(where: { $0.id == posts[index].id })
-//        }
+    func fetchPosts() {
+        Task {
+            do {
+                posts = try await PostService.shared.fetchPosts()
+            } catch {
+                print("Could not fetch posts: \(error.localizedDescription)")
+            }
+        }
     }
     
-    private func setupCurrentUserPostsIndices() {
-        currentUserPosts = posts.filter { $0.userId == currentUser.id }
+    func fetchCurrentUserPosts() {
+        Task {
+            do {
+                currentUserPosts = try await PostService.shared.fetchCurrentUserPosts()
+            } catch {
+                print("Could not fetch current user posts: \(error.localizedDescription)")
+            }
+        }
     }
 }

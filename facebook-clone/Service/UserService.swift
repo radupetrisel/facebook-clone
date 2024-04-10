@@ -60,4 +60,8 @@ final class UserService {
             .compactMap { try? $0.data(as: User.self) }
             .filter { currentUser.hasFriendRequest(from: $0) }
     }
+    
+    func fetchUser(withUid uid: String) async throws -> User {
+        try await Firestore.firestore().collection(Firestore.USERS).document(uid).getDocument(as: User.self)
+    }
 }

@@ -27,6 +27,7 @@ struct FeedView: View {
                 }
                 .toolbar { toolbar }
             }
+            .refreshable { viewModel.fetchPosts() }
         }
     }
     

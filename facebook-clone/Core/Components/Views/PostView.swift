@@ -14,11 +14,14 @@ struct PostView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(post.user?.profileImageURL?.absoluteString ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(.circle)
+                AsyncImage(url: post.user?.profileImageURL) { image in
+                    image.resizable()
+                } placeholder: {
+                    Image(.noProfile).resizable()
+                }
+                .scaledToFill()
+                .frame(width: 40, height: 40)
+                .clipShape(.circle)
                 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(post.user?.fullName ?? "")
@@ -51,13 +54,18 @@ struct PostView: View {
             Text(post.title)
                 .padding(.horizontal)
             
-            if post.isVideo {
-                VideoPlayer(player: AVPlayer(url: post.imageURL))
+            if let imageURL = post.imageURL {
+                if post.isVideo {
+                    VideoPlayer(player: AVPlayer(url: imageURL))
                         .frame(height: 400)
-            } else {
-                Image(post.imageURL.absoluteString)
-                    .resizable()
+                } else {
+                    AsyncImage(url: imageURL) { image in
+                        image.resizable()
+                    } placeholder: {
+                        Image(.noProfile).resizable()
+                    }
                     .scaledToFill()
+                }
             }
             
             HStack(spacing: 3) {

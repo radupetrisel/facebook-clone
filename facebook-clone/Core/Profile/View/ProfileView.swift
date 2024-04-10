@@ -29,6 +29,7 @@ struct ProfileView: View {
                     ForEach(viewModel.currentUserPosts, content: PostView.init(post:))
                 }
             }
+            .refreshable { viewModel.fetchCurrentUserPosts() }
             .scrollIndicators(.hidden)
             .navigationTitle(viewModel.currentUser.fullName)
             .toolbar { toolbar }
