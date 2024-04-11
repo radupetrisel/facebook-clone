@@ -77,6 +77,7 @@
 		7C9A8AE42BC4747B00B3CB62 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A8AE32BC4747B00B3CB62 /* PostService.swift */; };
 		7CE84E732BC704A800E18887 /* VideoUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE84E722BC704A800E18887 /* VideoUploader.swift */; };
 		7CE84E752BC7076300E18887 /* PhotosPickerItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE84E742BC7076300E18887 /* PhotosPickerItem+Extensions.swift */; };
+		7CE84E782BC85CFD00E18887 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE84E772BC85CFD00E18887 /* VideoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,7 @@
 		7C9A8AE32BC4747B00B3CB62 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		7CE84E722BC704A800E18887 /* VideoUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploader.swift; sourceTree = "<group>"; };
 		7CE84E742BC7076300E18887 /* PhotosPickerItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosPickerItem+Extensions.swift"; sourceTree = "<group>"; };
+		7CE84E772BC85CFD00E18887 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 		7C73228A2BA22C1800892F52 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				7CE84E762BC85CEE00E18887 /* ViewModel */,
 				7C57742B2BB1FB640059193B /* View */,
 			);
 			path = Video;
@@ -539,6 +542,14 @@
 			isa = PBXGroup;
 			children = (
 				7C82C8122BC1D54900D6B254 /* RootViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7CE84E762BC85CEE00E18887 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7CE84E772BC85CFD00E18887 /* VideoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -673,6 +684,7 @@
 				7C5773FD2BA624050059193B /* PostView.swift in Sources */,
 				7C3801612BB473B400200F46 /* FeedViewModel.swift in Sources */,
 				7C5774322BB200FF0059193B /* VideoOptionView.swift in Sources */,
+				7CE84E782BC85CFD00E18887 /* VideoViewModel.swift in Sources */,
 				7CE84E732BC704A800E18887 /* VideoUploader.swift in Sources */,
 				7C5774222BB09C7E0059193B /* MenuView.swift in Sources */,
 				7C3801732BB893D500200F46 /* AddNameView.swift in Sources */,

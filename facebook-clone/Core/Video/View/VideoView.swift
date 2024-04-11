@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct VideoView: View {
+    @State private var viewModel = VideoViewModel()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VideoOptionView()
                 
-                ForEach(0 ..< 3) { _ in
-                    PostView(post: .preview)
-                }
+                ForEach(viewModel.videoPosts, content: PostView.init(post:))
             }
+            .refreshable { viewModel.fetchVideoPosts() }
             .scrollIndicators(.hidden)
             .toolbar { toolbar }
         }

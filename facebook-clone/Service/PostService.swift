@@ -62,4 +62,17 @@ final class PostService {
         
         return posts
     }
+    
+    func fetchVideoPosts() async throws -> [Post] {
+        let data = try await Firestore.firestore().collection(Firestore.POSTS).whereField("isVideo", isEqualTo: true).getDocuments()
+        
+        var posts = data.documents
+            .compactMap { try? $0.data(as: Post.self) }
+        
+        for i in posts.indices {
+            posts[i].user = try await UserService.shared.fetchUser(withUid: posts[i].userId)
+        }
+        
+        return posts.sorted { $0.timeStamp.dateValue() > $1.timeStamp.dateValue() }
+    }
 }
